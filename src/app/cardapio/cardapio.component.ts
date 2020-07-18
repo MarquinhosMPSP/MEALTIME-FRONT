@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CardapioService } from '../services/cardapio.service';
+import { Cardapio } from '../model/cardapio';
 
 @Component({
   selector: 'app-cardapio',
@@ -17,11 +19,16 @@ export class CardapioComponent implements OnInit {
     {nome: "Prato 7", preco: "29.99", categoria: "Lanche  "},
     {nome: "Prato 8", preco: "30.99", categoria: "Brasileira"},
     {nome: "Prato 9", preco: "31.99", categoria: "Árabe"}
-  ]
+  ];
 
-  constructor() { }
+  cardapioData:Cardapio[] = [];
+
+  constructor(private cardapioService: CardapioService) { }
 
   ngOnInit() {
+    this.cardapioService.getIndex().subscribe(
+      (data) => {this.cardapioData = data}
+    )
   }
 
 }

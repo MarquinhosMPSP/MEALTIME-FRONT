@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LugarService } from '../services/lugar.service';
 
 @Component({
   selector: 'app-lugares',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LugaresComponent implements OnInit {
 
-  constructor() { }
+  constructor(private lugarService: LugarService) { }
 
   ngOnInit() {
+    this.lugarService.get().subscribe(
+      (data) => {console.log(data)}
+    )
   }
 
 }
