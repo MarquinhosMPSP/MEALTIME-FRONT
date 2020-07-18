@@ -1,0 +1,45 @@
+<div fxLayout="column" fxLayoutAlign="center-center stretch">
+  <div fxFlex="10">
+    <mat-card>
+      <div fxLayout="row">
+        <mat-card-title>Cadastro de item</mat-card-title>
+      </div>
+      <mat-card-content>
+        <form [formGroup]="itemForm" (ngSubmit)="save()" fxLayout="column" fxLayoutAlign="space-between" #form="ngForm">
+          
+          <div fxLayout="row" fxLayoutAlign="space-between">
+            <mat-form-field fxFlex=47.5>
+              <input matInput placeholder="Item nome" formControlName="nome">
+            </mat-form-field>
+            <mat-form-field fxFlex=47.5>
+              <input matInput placeholder="Url da imagem" formControlName="pratoImgUrl">
+            </mat-form-field>
+          </div>
+
+          <div fxLayout="row" fxLayoutAlign="space-between">
+            <mat-form-field fxFlex=30>
+              <input matInput placeholder="Preço" type="number" formControlName="preco">
+            </mat-form-field>
+            <mat-form-field fxFlex=30>
+              <input matInput placeholder="Tempo de preparo" type="number" formControlName="tempoPreparo">
+            </mat-form-field>
+            <mat-form-field fxFlex=30>
+              <input matInput placeholder="Tempo de preparo"  formControlName="disponivel">
+            </mat-form-field>
+          </div>
+
+          <mat-form-field>
+            <textarea matInput placeholder="Descrição"
+            formControlName="descricao"></textarea>
+          </mat-form-field>
+            
+          
+          <div mat-dialog-actions>
+            <button mat-button color="primary" fxFlex="10" type="submit">save</button>
+            <button mat-button color="warn" fxFlex="10" type="reset" (click)="cancel()">cancel</button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
