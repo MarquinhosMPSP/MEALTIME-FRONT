@@ -4,11 +4,13 @@ import { Routes, RouterModule } from '@angular/router'
 import { LugaresComponent } from '../lugares/lugares.component';
 import { CardapioComponent } from '../cardapio/cardapio.component';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
+import { FormularioComponent } from '../cardapio/formulario/formulario.component';
 
 const appRoutes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'cardapio'},
   { path: 'lugares', component: LugaresComponent},
   { path: 'cardapio', component: CardapioComponent},
+  { path: 'cardapio/formulario', component: FormularioComponent},
   { path: '**', component: PageNotFoundComponent},
 ];
 

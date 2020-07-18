@@ -10,13 +10,15 @@ import { MaterialModule } from './material/material.module';
 import { RoteamentoModule } from './roteamento/roteamento.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { FormularioComponent } from './cardapio/formulario/formulario.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LugaresComponent,
     CardapioComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    FormularioComponent
   ],
   imports: [
     BrowserModule,

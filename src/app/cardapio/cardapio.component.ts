@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CardapioService } from '../services/cardapio.service';
 import { Cardapio } from '../model/cardapio';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-cardapio',
@@ -21,14 +22,25 @@ export class CardapioComponent implements OnInit {
     {nome: "Prato 9", preco: "31.99", categoria: "Árabe"}
   ];
 
-  cardapioData:Cardapio[] = [];
+  cardapioData$: Observable<Cardapio[]>;
 
   constructor(private cardapioService: CardapioService) { }
 
   ngOnInit() {
-    this.cardapioService.getIndex().subscribe(
-      (data) => {this.cardapioData = data}
-    )
+    this.cardapioData$ = this.cardapioService.getIndex();
   }
+
+  deleteItem(item: Cardapio){
+    this.cardapioService.delete(item)
+      .subscribe(
+        () => {'deletou'}
+      )
+  }
+
+  cadastrarItem(item: Cardapio){
+  
+  }
+
+  
 
 }
