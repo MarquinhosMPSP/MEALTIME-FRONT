@@ -29,6 +29,9 @@ import { FormularioComponent } from './cardapio/formulario/formulario.component'
     ReactiveFormsModule,
     HttpClientModule
   ],
+  entryComponents:[
+    FormularioComponent
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

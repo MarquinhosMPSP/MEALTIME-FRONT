@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Cardapio } from 'src/app/model/cardapio';
 import { CardapioService } from 'src/app/services/cardapio.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-formulario',
@@ -19,17 +20,25 @@ export class FormularioComponent implements OnInit {
     disponivel: [false, [Validators.required]]
   });
 
+  item:Cardapio;
+
   constructor(
+    public dialogRef: MatDialogRef<FormularioComponent>,
     private cardapioService: CardapioService,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder) {}
 
   ngOnInit() {
   }
 
   save(){
-    console.log('cadastrar')
     this.cardapioService.cadastrar(this.itemForm.value)
-      .subscribe(() => {console.log('cadastrou')});
+      .subscribe(() => {
+        this.dialogRef.close();
+      });
+  }
+
+  cancel(){
+    this.dialogRef.close();
   }
 
 

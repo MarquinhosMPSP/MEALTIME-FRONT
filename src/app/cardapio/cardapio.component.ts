@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CardapioService } from '../services/cardapio.service';
 import { Cardapio } from '../model/cardapio';
 import { Observable, BehaviorSubject } from 'rxjs';
+import { MatDialog } from '@angular/material';
+import { FormularioComponent } from './formulario/formulario.component';
 
 @Component({
   selector: 'app-cardapio',
@@ -24,21 +26,33 @@ export class CardapioComponent implements OnInit {
 
   cardapioData$: Observable<Cardapio[]>;
 
-  constructor(private cardapioService: CardapioService) { }
+  constructor(
+    private cardapioService: CardapioService,
+    public dialog: MatDialog) { }
 
   ngOnInit() {
+    this.getItems()
+  }
+
+  getItems(){
     this.cardapioData$ = this.cardapioService.getIndex();
   }
 
   deleteItem(item: Cardapio){
     this.cardapioService.delete(item)
       .subscribe(
-        () => {'deletou'}
+        () => { this.getItems() }
       )
   }
 
-  cadastrarItem(item: Cardapio){
-  
+  cadastrarItem(){
+    let dialogRef = this.dialog.open(FormularioComponent, {width: '800px'});
+    dialogRef.afterClosed()
+      .subscribe(
+        () => {
+          this.cardapioData$ = this.cardapioService.getIndex();
+        }
+      );
   }
 
   
