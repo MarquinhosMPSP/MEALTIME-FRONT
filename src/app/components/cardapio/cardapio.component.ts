@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CardapioService } from '../services/cardapio.service';
-import { Cardapio } from '../model/cardapio';
+import { CardapioService } from '../../services/cardapio.service';
+import { Cardapio } from '../../model/cardapio';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { MatDialog } from '@angular/material';
 import { FormularioComponent } from './formulario/formulario.component';
@@ -55,6 +55,6 @@ export class CardapioComponent implements OnInit {
       );
   }
 
-  
+
 
 }

@@ -2,3 +2,43 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:root {
+  --success: #00c853;
+  --warning: #ffab00;
+  --error: #d50000;
+}
+
+/* HELPERS */
+.success {
+  background: var(--success);
+  color: #000;
+}
+.warning {
+  background: var(--warning);
+  color: #000;
+}
+.error {
+  background: var(--error);
+  color: #000;
+}
+
+.bg-success {
+  background: var(--success);
+}
+.bg-warning {
+  background: var(--warning);
+}
+.bg-error {
+  background: var(--error);
+}
+
+.text-success {
+  color: var(--success);
+}
+.text-warning {
+  color: var(--warning);
+}
+.text-error {
+  color: var(--error);
+}

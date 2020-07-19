@@ -1,0 +1,20 @@
+<div class="background">
+  <div class="login">
+    <mat-card class="login-box">
+      <h1>Faça login</h1>
+      <mat-card-content class="form">
+        <mat-form-field class="input-box">
+          <mat-label>Usuário</mat-label>
+          <input matInput [(ngModel)]="login" placeholder="Digite seu usuário...">
+        </mat-form-field>
+        <mat-form-field class="input-box">
+          <mat-label>Senha</mat-label>
+          <input type="password" matInput [(ngModel)]="senha" placeholder="Digite sua senha...">
+        </mat-form-field>
+        <button mat-button
+        (click)="doLogin()"
+        [disabled]="!login || !senha">Entrar</button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
