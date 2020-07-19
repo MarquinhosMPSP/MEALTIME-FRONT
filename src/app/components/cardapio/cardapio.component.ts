@@ -8,7 +8,7 @@ import { FormularioComponent } from './formulario/formulario.component';
 @Component({
   selector: 'app-cardapio',
   templateUrl: './cardapio.component.html',
-  styleUrls: ['./cardapio.component.css']
+  styleUrls: ['./cardapio.component.scss']
 })
 export class CardapioComponent implements OnInit {
 

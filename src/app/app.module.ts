@@ -14,6 +14,8 @@ import { FormularioComponent } from './components/cardapio/formulario/formulario
 import { LoginComponent } from './pages/login/login.component';
 import { MainComponent } from './pages/main/main.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,13 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     RoteamentoModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   exports: [
     BrowserModule,

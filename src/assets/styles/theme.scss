@@ -1,0 +1,50 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-custom-primary: (
+    50 : #fff8e5,
+    100 : #ffecbe,
+    200 : #ffe093,
+    300 : #ffd468,
+    400 : #ffca47,
+    500 : #ffc127,
+    600 : #ffbb23,
+    700 : #ffb31d,
+    800 : #ffab17,
+    900 : #ff9e0e,
+    A100 : #ffffff,
+    A200 : #fffbf6,
+    A400 : #ffe5c3,
+    A700 : #ffdaaa,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$main: #ffc127;
+$success: #00c853;
+$warning: #ffab00;
+$error: #d50000;
+
+/* ANGULAR MATERIAL CUSTOM THEMES */
+$mealtime-primary: mat-palette($md-custom-primary);
+$mealtime-accent : mat-palette($mat-amber);
+$mealtime-warn   : mat-palette($mat-red);
+
+$mealtime-theme: mat-light-theme($mealtime-primary, $mealtime-accent, $mealtime-warn);
+
+@include angular-material-theme($mealtime-theme);

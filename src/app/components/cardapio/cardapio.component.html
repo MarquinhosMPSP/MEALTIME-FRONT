@@ -18,13 +18,13 @@
             <mat-icon mat-list-icon>local_dining</mat-icon>
             <h4 mat-line>{{c.nome}}</h4>
             <h4 mat-line>R$ {{c.preco | number: '1.2-2'}}</h4>
-            <button mat-icon-button color="primary" routerLink="/nada/{{i}}">
+            <button mat-icon-button routerLink="/nada/{{i}}">
               <mat-icon>more_horiz</mat-icon>
             </button>
-            <button mat-icon-button color="primary" routerLink="/nada/{{i}}">
+            <button mat-icon-button routerLink="/nada/{{i}}">
               <mat-icon>edit</mat-icon>
             </button>
-            <button mat-icon-button color="accent" (click)="deleteItem(c)">
+            <button mat-icon-button color="warn" (click)="deleteItem(c)">
               <mat-icon>delete_outline</mat-icon>
             </button>
           </mat-list-item>

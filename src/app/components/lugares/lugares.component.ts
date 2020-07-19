@@ -4,7 +4,7 @@ import { LugarService } from '../../services/lugar.service';
 @Component({
   selector: 'app-lugares',
   templateUrl: './lugares.component.html',
-  styleUrls: ['./lugares.component.css']
+  styleUrls: ['./lugares.component.scss']
 })
 export class LugaresComponent implements OnInit {
 
