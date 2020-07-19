@@ -17,7 +17,7 @@
           <mat-list-item *ngFor="let c of cardapioData$ | async c">
             <mat-icon mat-list-icon>local_dining</mat-icon>
             <h4 mat-line>{{c.nome}}</h4>
-            <h4 mat-line>{{c.preco}}</h4>
+            <h4 mat-line>R$ {{c.preco | number: '1.2-2'}}</h4>
             <button mat-icon-button color="primary" routerLink="/nada/{{i}}">
               <mat-icon>more_horiz</mat-icon>
             </button>
