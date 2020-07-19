@@ -1,8 +1,8 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Cardapio } from 'src/app/model/cardapio';
 import { CardapioService } from 'src/app/services/cardapio.service';
-import { FormBuilder, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-formulario',
@@ -11,7 +11,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 })
 export class FormularioComponent implements OnInit {
 
-  itemForm = this.fb.group({
+  itemForm: FormGroup = this.fb.group({
     nome: ['', [Validators.required]],
     preco: [0, [Validators.required, Validators.min(0)]],
     tempoPreparo: [0, [Validators.required, Validators.min(0)]],
@@ -33,12 +33,12 @@ export class FormularioComponent implements OnInit {
   save(){
     this.cardapioService.cadastrar(this.itemForm.value)
       .subscribe(() => {
-        this.dialogRef.close();
+        this.dialogRef.close(true);
       });
   }
 
   cancel(){
-    this.dialogRef.close();
+    this.dialogRef.close(false);
   }
 
 

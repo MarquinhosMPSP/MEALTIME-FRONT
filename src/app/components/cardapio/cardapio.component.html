@@ -2,10 +2,15 @@
   <div fxFlex="10">
     <mat-card>
       <div fxLayout="row">
-        <mat-card-title>Cardápio</mat-card-title>
-        <button mat-icon-button color="primary" (click)="cadastrarItem()"> 
-          <mat-icon>add</mat-icon>
-        </button>
+        <mat-card-title-group fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100">
+          <mat-card-title>Cardápio</mat-card-title>
+          <mat-card-subtitle>
+            <span>Registre os itens do seu estabelecimento.</span>
+          </mat-card-subtitle>
+          <button mat-icon-button color="primary" (click)="cadastrarItem()">
+            <mat-icon>add</mat-icon>
+          </button>
+        </mat-card-title-group>
       </div>
       <mat-card-content>
         <mat-list>
@@ -13,15 +18,15 @@
             <mat-icon mat-list-icon>local_dining</mat-icon>
             <h4 mat-line>{{c.nome}}</h4>
             <h4 mat-line>{{c.preco}}</h4>
-            <button mat-icon-button color="primary" routerLink="/nada/{{i}}"> 
+            <button mat-icon-button color="primary" routerLink="/nada/{{i}}">
               <mat-icon>more_horiz</mat-icon>
             </button>
-            <button mat-icon-button color="primary" routerLink="/nada/{{i}}"> 
+            <button mat-icon-button color="primary" routerLink="/nada/{{i}}">
               <mat-icon>edit</mat-icon>
             </button>
-            <button mat-icon-button color="accent" (click)="deleteItem(c)"> 
+            <button mat-icon-button color="accent" (click)="deleteItem(c)">
               <mat-icon>delete_outline</mat-icon>
-            </button>    
+            </button>
           </mat-list-item>
         </mat-list>
       </mat-card-content>

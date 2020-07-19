@@ -49,8 +49,8 @@ export class CardapioComponent implements OnInit {
     let dialogRef = this.dialog.open(FormularioComponent, {width: '800px'});
     dialogRef.afterClosed()
       .subscribe(
-        () => {
-          this.cardapioData$ = this.cardapioService.getIndex();
+        updating => {
+          if (updating) this.cardapioData$ = this.cardapioService.getIndex();
         }
       );
   }
