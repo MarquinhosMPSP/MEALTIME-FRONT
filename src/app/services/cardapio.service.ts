@@ -16,5 +16,15 @@ export class CardapioService {
     return this.http.get<Cardapio[]>(`${this.api_url}/itens`)
   }
 
+  delete(item: Cardapio):Observable<any>{
+    return this.http.delete(`${this.api_url}/itens/${item.idItem}`)
+  }
+
+  cadastrar(item: Cardapio):Observable<Cardapio>{
+    console.log(item)
+    return this.http.post<Cardapio>(`${this.api_url}/itens`, item)
+  }
+
+  
 
 }

@@ -1,0 +1,35 @@
+<div fxLayout="column" fxLayoutAlign="center-center stretch">
+  <div fxFlex="10">
+    <mat-card>
+      <div fxLayout="row">
+        <mat-card-title-group fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100">
+          <mat-card-title>Cardápio</mat-card-title>
+          <mat-card-subtitle>
+            <span>Registre os itens do seu estabelecimento.</span>
+          </mat-card-subtitle>
+          <button mat-icon-button color="primary" (click)="cadastrarItem()">
+            <mat-icon>add</mat-icon>
+          </button>
+        </mat-card-title-group>
+      </div>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item *ngFor="let c of cardapioData$ | async c">
+            <mat-icon mat-list-icon>local_dining</mat-icon>
+            <h4 mat-line>{{c.nome}}</h4>
+            <h4 mat-line>R$ {{c.preco | number: '1.2-2'}}</h4>
+            <button mat-icon-button routerLink="/nada/{{i}}">
+              <mat-icon>more_horiz</mat-icon>
+            </button>
+            <button mat-icon-button routerLink="/nada/{{i}}">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteItem(c)">
+              <mat-icon>delete_outline</mat-icon>
+            </button>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

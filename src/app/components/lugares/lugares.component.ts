@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { LugarService } from '../services/lugar.service';
-import { Lugares } from '../model/lugares';
+//import { LugarService } from '../services/lugar.service';
+//import { Lugares } from '../model/lugares';
+import { LugarService } from '../../services/lugar.service';
 
 @Component({
   selector: 'app-lugares',
   templateUrl: './lugares.component.html',
-  styleUrls: ['./lugares.component.css']
+  styleUrls: ['./lugares.component.scss']
 })
 export class LugaresComponent implements OnInit {
 
@@ -13,7 +14,7 @@ export class LugaresComponent implements OnInit {
     {nomeMesa: "Cleiton", disponivel: true},
   ];
 
-  LugaresData:Lugares[] = [];
+  //LugaresData:Lugares[] = [];
 
 
   constructor(private lugarService: LugarService) { }

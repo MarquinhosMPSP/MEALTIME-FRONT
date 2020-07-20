@@ -1,0 +1,70 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:root {
+  --main: #ffc127;
+  --success: #00c853;
+  --warning: #ffab00;
+  --error: #d50000;
+}
+
+/* HACK TO REMOVE AUTOFILL */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: none;
+  -webkit-box-shadow: none;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* HELPERS */
+.main {
+  background: var(--main);
+  color: #000;
+}
+.success {
+  background: var(--success);
+  color: #000;
+}
+.warning {
+  background: var(--warning);
+  color: #000;
+}
+.error {
+  background: var(--error);
+  color: #000;
+}
+
+.bg-main {
+  background: var(--main);
+}
+.bg-success {
+  background: var(--success);
+}
+.bg-warning {
+  background: var(--warning);
+}
+.bg-error {
+  background: var(--error);
+}
+
+.text-main {
+  color: var(--main);
+}
+.text-success {
+  color: var(--success);
+}
+.text-warning {
+  color: var(--warning);
+}
+.text-error {
+  color: var(--error);
+}
