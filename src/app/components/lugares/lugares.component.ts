@@ -28,7 +28,7 @@ export class LugaresComponent implements OnInit {
     )
   }
 
-  teter(item){
+  DeleteItem(item){
     this.lugarService.delete(item).subscribe(
       () => {
         console.log("deletado")        
