@@ -1,3 +1,25 @@
-<p>
-  lugares works!
-</p>
+<div fxLayout="column" fxLayoutAlign="center-center stretch">
+  <div fxFlex="10">
+    <mat-card>
+      <mat-card-title>Lugares</mat-card-title>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item *ngFor="let l of lugares">
+            <mat-icon mat-list-icon>local_dining</mat-icon>
+            <h4 mat-line>{{l.nomeMesa}}</h4>
+            <h4 mat-line>{{l.disponivel}}</h4>
+            <button mat-icon-button color="primary" routerLink="/dvds/{{i}}"> 
+              <mat-icon>more_horiz</mat-icon>
+            </button>
+            <button mat-icon-button color="primary" routerLink="/dvds/{{i}}"> 
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="accent" (click) = "teter(l)"> 
+              <mat-icon>delete_outline</mat-icon>
+            </button>    
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
