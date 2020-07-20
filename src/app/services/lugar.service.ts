@@ -17,6 +17,6 @@ export class LugarService {
   }
 
   delete(item:Lugares):Observable<any>{
-    return this.http.delete<any>(`${this.api_url}/mesaspenis/${item.idMesa}`)
+    return this.http.delete<any>(`${this.api_url}/mesas/${item.idMesa}`)
   }
 }
