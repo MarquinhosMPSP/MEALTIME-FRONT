@@ -10,7 +10,7 @@ import { LugarService } from '../../services/lugar.service';
 export class LugaresComponent implements OnInit {
 
   lugares = [
-    {nomeMesa: "Cleiton", disponivel: true},
+    {},
   ];
 
   LugaresData:Lugares[] = [];
