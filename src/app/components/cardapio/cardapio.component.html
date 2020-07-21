@@ -12,68 +12,66 @@
           </button>
         </mat-card-title-group>
       </div>
-      <mat-card-content>
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <mat-card-content class="overflow-x">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-  <ng-container matColumnDef="idItem">
-    <th mat-header-cell *matHeaderCellDef> #ID </th>
-    <td mat-cell *matCellDef="let cardapio"> {{cardapio.idItem}} </td>
-  </ng-container>
+          <ng-container matColumnDef="idItem">
+            <th mat-header-cell *matHeaderCellDef> #ID </th>
+            <td mat-cell *matCellDef="let cardapio"> {{cardapio.idItem}} </td>
+          </ng-container>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="nome">
-    <th mat-header-cell *matHeaderCellDef> Nome </th>
-    <td mat-cell *matCellDef="let cardapio"> {{cardapio.nome}} </td>
-  </ng-container>
+          <!-- Name Column -->
+          <ng-container matColumnDef="nome">
+            <th mat-header-cell *matHeaderCellDef> Nome </th>
+            <td mat-cell *matCellDef="let cardapio"> {{cardapio.nome}} </td>
+          </ng-container>
 
-  <!-- Weight Column -->
-  <ng-container matColumnDef="preco">
-    <th mat-header-cell *matHeaderCellDef> Preço </th>
-    <td mat-cell *matCellDef="let cardapio"> {{cardapio.preco}} </td>
-  </ng-container>
+          <!-- Weight Column -->
+          <ng-container matColumnDef="preco">
+            <th mat-header-cell *matHeaderCellDef> Preço </th>
+            <td mat-cell *matCellDef="let cardapio"> R${{cardapio.preco}} </td>
+          </ng-container>
 
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="descricao">
-    <th mat-header-cell *matHeaderCellDef> Descrição </th>
-    <td mat-cell *matCellDef="let cardapio"> {{cardapio.descricao}} </td>
-  </ng-container>
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="descricao">
+            <th mat-header-cell *matHeaderCellDef> Descrição </th>
+            <td mat-cell *matCellDef="let cardapio"> {{cardapio.descricao}} </td>
+          </ng-container>
 
-  <ng-container matColumnDef="disponivel">
-    <th mat-header-cell *matHeaderCellDef> Disponível </th>
-    <td mat-cell *matCellDef="let cardapio">
-      <mat-icon *ngIf="!cardapio.disponivel" color="warn">lock</mat-icon>
-      <mat-icon *ngIf="cardapio.disponivel" style="color: rgb(53, 219, 150);">lock_open</mat-icon>
-    </td>
-  </ng-container>
+          <ng-container matColumnDef="disponivel">
+            <th mat-header-cell *matHeaderCellDef> Disponível </th>
+            <td mat-cell *matCellDef="let cardapio">
+              <mat-icon *ngIf="!cardapio.disponivel" color="warn">lock</mat-icon>
+              <mat-icon *ngIf="cardapio.disponivel" style="color: rgb(53, 219, 150);">lock_open</mat-icon>
+            </td>
+          </ng-container>
 
-  <ng-container matColumnDef="tempoPreparo">
-    <th mat-header-cell *matHeaderCellDef> Tempo de preparo </th>
-    <td mat-cell *matCellDef="let cardapio"> {{cardapio.tempoPreparo}} </td>
-  </ng-container>
+          <ng-container matColumnDef="tempoPreparo">
+            <th mat-header-cell *matHeaderCellDef> Tempo de preparo </th>
+            <td mat-cell *matCellDef="let cardapio"> {{cardapio.tempoPreparo}} min </td>
+          </ng-container>
 
-  <ng-container matColumnDef="pratoImgUrl">
-    <th mat-header-cell *matHeaderCellDef> imagem </th>
-    <td mat-cell *matCellDef="let cardapio"> {{cardapio.pratoImgUrl}} </td>
-  </ng-container>
+          <ng-container matColumnDef="pratoImgUrl">
+            <th mat-header-cell *matHeaderCellDef> Imagem </th>
+            <td mat-cell *matCellDef="let cardapio"> {{cardapio.pratoImgUrl}} </td>
+          </ng-container>
 
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef>Ações </th>
-    <td mat-cell *matCellDef="let cardapio"> 
-      <button mat-icon-button color="warn" aria-label="Deletar" (click)="deleteItem(cardapio)">
-        <mat-icon>delete</mat-icon>
-      </button> 
-      <button mat-icon-button color="primary" aria-label="Editar" (click)="editarItem(cardapio)">
-        <mat-icon>edit</mat-icon>
-      </button> 
-    </td>
-  </ng-container>
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Ações </th>
+            <td mat-cell *matCellDef="let cardapio">
+              <button mat-icon-button color="warn" aria-label="Deletar" (click)="deleteItem(cardapio)">
+                <mat-icon>delete</mat-icon>
+              </button>
+              <button mat-icon-button color="primary" aria-label="Editar" (click)="editarItem(cardapio)">
+                <mat-icon>edit</mat-icon>
+              </button>
+            </td>
+          </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-</mat-card-content>
-</mat-card>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>
-</div>
-
-

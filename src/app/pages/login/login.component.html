@@ -1,5 +1,5 @@
 <div class="background">
-  <div class="login" fxLayout="column" fxLayoutAlign="center center">
+  <form class="login" (ngSubmit)="doLogin()" fxLayout="column" fxLayoutAlign="center center">
     <mat-card class="login-box" fxLayout="column" fxLayoutAlign="center center">
       <mat-card-title-group fxLayout="column" fxLayoutAlign="center center">
         <img src="../../../assets/img/logo.png" width="250" alt="Logo">
@@ -7,17 +7,21 @@
       <mat-card-content class="form" fxLayout="column">
         <mat-form-field class="input-box">
           <mat-label>Usuário</mat-label>
-          <input matInput [(ngModel)]="login" placeholder="Digite seu usuário...">
+          <input matInput [(ngModel)]="login" name="login" placeholder="Digite seu usuário...">
         </mat-form-field>
         <mat-form-field class="input-box">
           <mat-label>Senha</mat-label>
-          <input type="password" class="text-main" matInput [(ngModel)]="senha" placeholder="Digite sua senha...">
+          <input type="password" class="text-main" matInput [(ngModel)]="senha" name="pass" placeholder="Digite sua senha...">
+        </mat-form-field>
+        <mat-form-field class="input-box">
+          <mat-checkbox [(ngModel)]="lembrar" name="remember">Lembrar</mat-checkbox>
+          <input matInput type="text" hidden>
         </mat-form-field>
         <button mat-flat-button
         class="main"
-        (click)="doLogin()"
+        type="submit"
         [disabled]="!login || !senha">Entrar</button>
       </mat-card-content>
     </mat-card>
-  </div>
+  </form>
 </div>

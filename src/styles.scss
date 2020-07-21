@@ -68,3 +68,7 @@ select:-webkit-autofill:focus {
 .text-error {
   color: var(--error);
 }
+
+.overflow-x {
+  overflow: auto !important;
+}
