@@ -16,6 +16,7 @@ import { MainComponent } from './pages/main/main.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { NotifierModule } from "angular-notifier";
 
 @NgModule({
   declarations: [
@@ -40,7 +41,13 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    NotifierModule.withConfig({
+      position: {
+        horizontal: { position: "right"},
+        vertical: { position: "top"}
+      } 
+    })
   ],
   exports: [
     BrowserModule,

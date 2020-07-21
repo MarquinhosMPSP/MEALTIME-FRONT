@@ -6,7 +6,6 @@
       </div>
       <mat-card-content>
         <form [formGroup]="itemForm" (ngSubmit)="save()" fxLayout="column" fxLayoutAlign="space-between" #form="ngForm">
-
           <div fxLayout="row" fxLayoutAlign="space-between">
             <mat-form-field fxFlex=47.5>
               <input matInput required placeholder="Nome do item" formControlName="nome">

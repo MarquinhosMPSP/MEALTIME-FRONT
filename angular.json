@@ -25,7 +25,8 @@
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss",
-              "src/assets/styles/theme.scss"
+              "src/assets/styles/theme.scss",
+              "./node_modules/angular-notifier/styles.scss"
             ],
             "scripts": [],
             "es5BrowserSupport": true

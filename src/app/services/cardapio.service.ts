@@ -21,10 +21,11 @@ export class CardapioService {
   }
 
   cadastrar(item: Cardapio):Observable<Cardapio>{
-    console.log(item)
     return this.http.post<Cardapio>(`${this.api_url}/itens`, item)
   }
 
-  
+  editar(id:number, item: Cardapio):Observable<Cardapio>{
+    return this.http.put<Cardapio>(`${this.api_url}/itens/${id}`, item)
+  }
 
 }
