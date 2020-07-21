@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { NotificationService } from 'src/app/services/notification.service';
+import { UserService } from 'src/app/services/user.service';
 
 
 @Component({
@@ -17,8 +18,9 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private route: Router,
-    private notificationService: NotificationService) { }
+    private userService: UserService,
+    private notificationService: NotificationService,
+    private route: Router) { }
 
   ngOnInit() {
     this.notificationService.getNotification().subscribe(notificacao => {
@@ -31,8 +33,9 @@ export class LoginComponent implements OnInit {
     if (this.lembrar) this.saveUser()
     this.authService.login(this.login, this.senha)
       .subscribe(data => {
-        if (data.token) {
+        if (data.token && data.usuario) {
           this.authService.setToken(data.token)
+          this.userService.saveUserName(data.usuario.nome)
           this.route.navigate(['/home'])
         }
       },
@@ -42,13 +45,11 @@ export class LoginComponent implements OnInit {
   }
 
   saveUser() {
-    localStorage.setItem('email', this.login)
-    localStorage.setItem('pass', this.senha)
+    this.userService.saveUserCredentials(this.login, this.senha)
   }
 
   getCachedUser() {
-    const email = localStorage.getItem('email')
-    const pass = localStorage.getItem('pass')
+    const [email, pass] = this.userService.getUserCredentials()
 
     if (email && pass) {
       this.login = email

@@ -55,6 +55,12 @@ select:-webkit-autofill:focus {
 .bg-error {
   background: var(--error);
 }
+.bg-white {
+  background: #fff;
+}
+.bg-black {
+  background: #000;
+}
 
 .text-main {
   color: var(--main);
@@ -67,6 +73,12 @@ select:-webkit-autofill:focus {
 }
 .text-error {
   color: var(--error);
+}
+.text-white {
+  color: #fff;
+}
+.text-black {
+  color: #000;
 }
 
 .overflow-x {

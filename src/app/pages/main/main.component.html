@@ -1,12 +1,9 @@
-<mat-sidenav-container class = "tp-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="!(isHandset$ | async)">
+<mat-sidenav-container class="tp-container">
+  <mat-sidenav #menu class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
     <mat-toolbar fxLayout="row" fxLayoutAlign="space-between center" class="toolbar">
       <mat-toolbar-row>
         <img src="../../../assets/img/logo.png" width="150" alt="Logo">
-        <span></span>
       </mat-toolbar-row>
     </mat-toolbar>
 
@@ -31,25 +28,45 @@
         Sair
       </a>
     </mat-nav-list>
-
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="menu.toggle()"
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <h1>
+        Olá, {{user}}
+      </h1>
+      <div class="toolbar-spacer"></div>
+      <button type="button" aria-label="Notifications"
+      *ngIf="canOpenNotification"
+      (click)="notifications.toggle()" mat-icon-button>
+        <mat-icon aria-label="Notifications icon">notifications</mat-icon>
       </button>
     </mat-toolbar>
     <div class="main-router">
       <router-outlet></router-outlet>
+      <mat-sidenav-container>
+        <mat-sidenav #notifications class="sidenav" fixedInViewport="true" [attr.role]="'dialog'" mode="over"
+          [opened]="false" position="end">
+          <button type="button" aria-label="Notifications" (click)="notifications.toggle()" mat-icon-button>
+            <mat-icon aria-label="Notifications icon">close</mat-icon>
+          </button>
+          <div class="notifications">
+            <h3>Notificações</h3>
+            <mat-nav-list>
+              <span mat-list-item class="tp-section">
+                Notificação 1
+              </span>
+              <mat-divider></mat-divider>
+              <span mat-list-item class="tp-section">
+                Notificação 2
+              </span>
+            </mat-nav-list>
+          </div>
+        </mat-sidenav>
+      </mat-sidenav-container>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
-
-
-
-
