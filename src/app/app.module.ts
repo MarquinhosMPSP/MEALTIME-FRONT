@@ -17,12 +17,6 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 import { NotifierModule } from "angular-notifier";
-import { LottieModule } from "ngx-lottie";
-import player from "lottie-web";
-
-export function playerFactory(){
-  return player
-}
 
 @NgModule({
   declarations: [
@@ -48,7 +42,6 @@ export function playerFactory(){
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    LottieModule.forRoot({ player: playerFactory }),
     NotifierModule.withConfig({
       position: {
         horizontal: { position: "right"},
