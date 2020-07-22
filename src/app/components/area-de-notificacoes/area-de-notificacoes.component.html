@@ -1,0 +1,23 @@
+<mat-sidenav-container>
+  <mat-sidenav #notifyNav class="sidenav-notifications" fixedInViewport="true" [attr.role]="'dialog'" mode="over"
+    [opened]="false" position="end">
+    <button type="button" aria-label="Notifications" (click)="closeNav()" mat-icon-button>
+      <mat-icon aria-label="Notifications icon">close</mat-icon>
+    </button>
+    <div class="notifications">
+      <h3>Você possui {{notifications.length}} {{notifications.length === 1 ? 'notificação' : 'notificações'}}</h3>
+      <mat-nav-list>
+        <ng-container *ngFor="let notification of notifications">
+          <span mat-list-item class="tp-section">
+            <button type="button" aria-label="Notifications"
+            (click)="removeNotification(notification)" mat-icon-button>
+              <mat-icon>close</mat-icon>
+            </button>
+            {{notification.message}}
+          </span>
+          <mat-divider></mat-divider>
+        </ng-container>
+      </mat-nav-list>
+    </div>
+  </mat-sidenav>
+</mat-sidenav-container>

@@ -6,7 +6,6 @@ import { MatDialog } from '@angular/material';
 import { FormularioComponent } from './formulario/formulario.component';
 import { CardapioDataSource } from './cardapio-data-source';
 import { NotificationService } from 'src/app/services/notification.service';
-import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-cardapio',
@@ -18,16 +17,12 @@ export class CardapioComponent implements OnInit {
   displayedColumns: string[] = ['idItem', 'nome', 'preco', 'descricao', 'disponivel', 'tempoPreparo', 'pratoImgUrl', 'actions'];
   dataSource: CardapioDataSource;
 
-  private readonly notifier: NotifierService;
-
   cardapioData$: Observable<Cardapio[]>;
 
   constructor(
     private cardapioService: CardapioService,
     public dialog: MatDialog,
-    notifierService: NotifierService) {
-      this.notifier = notifierService;
-     }
+    private notificationService: NotificationService) {}
 
   ngOnInit() {
     this.getItems();

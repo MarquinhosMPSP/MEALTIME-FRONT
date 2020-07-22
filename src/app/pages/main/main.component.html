@@ -23,6 +23,11 @@
         Reservas
       </a>
       <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/home/pedidos" class="tp-section">
+        <mat-icon mat-list-icon>assignment</mat-icon>
+        Pedidos
+      </a>
+      <mat-divider></mat-divider>
       <a mat-list-item (click)="logout()" class="tp-section">
         <mat-icon mat-list-icon>exit_to_app</mat-icon>
         Sair
@@ -41,32 +46,19 @@
       <div class="toolbar-spacer"></div>
       <button type="button" aria-label="Notifications"
       *ngIf="canOpenNotification"
-      (click)="notifications.toggle()" mat-icon-button>
+      (click)="areaNotificacoes.showNav()" mat-icon-button>
+      <ng-container *ngIf="totalNotifications > 0; else noNotifications">
+        <mat-icon [matBadge]="totalNotifications" matBadgeColor="warn" aria-label="Notifications icon">notifications</mat-icon>
+      </ng-container>
+      <ng-template #noNotifications>
         <mat-icon aria-label="Notifications icon">notifications</mat-icon>
+      </ng-template>
       </button>
     </mat-toolbar>
     <div class="main-router">
       <router-outlet></router-outlet>
-      <mat-sidenav-container>
-        <mat-sidenav #notifications class="sidenav" fixedInViewport="true" [attr.role]="'dialog'" mode="over"
-          [opened]="false" position="end">
-          <button type="button" aria-label="Notifications" (click)="notifications.toggle()" mat-icon-button>
-            <mat-icon aria-label="Notifications icon">close</mat-icon>
-          </button>
-          <div class="notifications">
-            <h3>Notificações</h3>
-            <mat-nav-list>
-              <span mat-list-item class="tp-section">
-                Notificação 1
-              </span>
-              <mat-divider></mat-divider>
-              <span mat-list-item class="tp-section">
-                Notificação 2
-              </span>
-            </mat-nav-list>
-          </div>
-        </mat-sidenav>
-      </mat-sidenav-container>
+      <app-area-de-notificacoes #areaNotificacoes
+      (notificationsNumber)="updateTotalNotifications($event)"></app-area-de-notificacoes>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

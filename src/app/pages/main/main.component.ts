@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Observable } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
@@ -17,15 +17,18 @@ export class MainComponent implements OnInit {
 
   canOpenNotification = true
 
+  @ViewChild('areaNotificacoes') areaNotificacoes
+
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches)
     )
 
+  totalNotifications: number;
+
   constructor(
     private authService: AuthService,
     private userService: UserService,
-    private notificationService: NotifierService,
     private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit() {
@@ -35,6 +38,12 @@ export class MainComponent implements OnInit {
 
   logout() {
     this.authService.logout()
+  }
+
+  updateTotalNotifications(total) {
+    this.totalNotifications = total
+    console.log(this.totalNotifications);
+
   }
 
 }

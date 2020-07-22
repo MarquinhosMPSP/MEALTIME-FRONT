@@ -1,33 +1,24 @@
 import { Injectable } from '@angular/core';
-import { MatSnackBar } from '@angular/material';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Notificacao, TipoNotificacao } from '../model/notificacao';
+import { NotifierService } from 'angular-notifier';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotificationService {
 
-  notification$ = new BehaviorSubject<Notificacao>(null)
+  notifications$ = new BehaviorSubject<any>(null)
 
-  constructor(private snackBar: MatSnackBar) {
-    this.notification$.subscribe(notification => {
-      if (!notification) return
-      this.snackBar.open(notification.message, null, {
-        duration: 5000,
-        horizontalPosition: 'end',
-        verticalPosition: 'top',
-        panelClass: TipoNotificacao[notification.type]
-      });
-    })
+  constructor(private notifier: NotifierService) {
   }
 
-  sendNotification(message: string, type: "success" | "warning" | "error"): void {
-    this.notification$.next({ message, type })
+  sendNotification(message: string, type: string): void {
+    this.notifications$.next({ message, type })
+    this.notifier.notify(type, message)
   }
 
-  getNotification(): Observable<Notificacao> {
-    return this.notification$.asObservable()
+  getNotification(): Observable<any> {
+    return this.notifications$.asObservable()
   }
 
 }

@@ -17,6 +17,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 import { NotifierModule } from "angular-notifier";
+import { AreaDeNotificacoesComponent } from './components/area-de-notificacoes/area-de-notificacoes.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { NotifierModule } from "angular-notifier";
     PageNotFoundComponent,
     FormularioComponent,
     LoginComponent,
-    MainComponent
+    MainComponent,
+    AreaDeNotificacoesComponent
   ],
   imports: [
     BrowserModule,
