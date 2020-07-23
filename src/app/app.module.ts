@@ -18,6 +18,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 import { NotifierModule } from "angular-notifier";
 import { AreaDeNotificacoesComponent } from './components/area-de-notificacoes/area-de-notificacoes.component';
+import { ReservasComponent } from './components/reservas/reservas.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AreaDeNotificacoesComponent } from './components/area-de-notificacoes/a
     FormularioComponent,
     LoginComponent,
     MainComponent,
-    AreaDeNotificacoesComponent
+    AreaDeNotificacoesComponent,
+    ReservasComponent
   ],
   imports: [
     BrowserModule,
