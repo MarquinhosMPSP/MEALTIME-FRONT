@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CardapioService } from '../../services/cardapio.service';
 import { Cardapio } from '../../model/cardapio';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material';
 import { FormularioComponent } from './formulario/formulario.component';
 import { CardapioDataSource } from './cardapio-data-source';
@@ -17,6 +17,7 @@ export class CardapioComponent implements OnInit {
   displayedColumns: string[] = ['idItem', 'nome', 'preco', 'descricao', 'disponivel', 'tempoPreparo', 'pratoImgUrl', 'actions'];
   dataSource: CardapioDataSource;
 
+  private subscription: Subscription = new Subscription();
   cardapioData$: Observable<Cardapio[]>;
 
   constructor(
@@ -25,14 +26,10 @@ export class CardapioComponent implements OnInit {
     private notificationService: NotificationService) {}
 
   ngOnInit() {
-    this.getItems();
     this.dataSource = new CardapioDataSource(this.cardapioService);
     this.dataSource.carregarCardapio();
   }
 
-  getItems(){
-    this.cardapioData$ = this.cardapioService.getIndex();
-  }
 
   deleteItem(item: Cardapio){
     this.dataSource.deletarItem(item);
@@ -40,24 +37,28 @@ export class CardapioComponent implements OnInit {
 
   cadastrarItem(){
     let dialogRef = this.dialog.open(FormularioComponent, {width: '800px'});
-    dialogRef.afterClosed()
+    this.subscription = dialogRef.afterClosed()
       .subscribe(
         updating => {
           if (updating) this.dataSource.carregarCardapio();
-        }
-    );
+        },
+        );
   }
 
   editarItem(item:Cardapio){
     let dialogRef = this.dialog.open(FormularioComponent, {width: '800px', data: item});
-    dialogRef.afterClosed()
+    this.subscription = dialogRef.afterClosed()
       .subscribe(
         updating => {
           if(updating) this.dataSource.carregarCardapio();
         }
       )
+
   }
 
+  ngOnDestroy() {
+      this.subscription.unsubscribe()      
+    }
 
 
 }

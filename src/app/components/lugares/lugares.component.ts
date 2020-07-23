@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Lugares } from '../../model/lugares';
 import { LugarService } from '../../services/lugar.service';
+import { LugaresDataSource } from './lugares-data-source';
 
 @Component({
   selector: 'app-lugares',
@@ -9,38 +10,20 @@ import { LugarService } from '../../services/lugar.service';
 })
 export class LugaresComponent implements OnInit {
 
-  lugares = [
-    {},
-  ];
-
+  displayedColumns: string[] = ['idMesa','nomeMesa','quantidadeLugares','disponivel', 'actions']
+  dataSource: LugaresDataSource;
   LugaresData:Lugares[] = [];
 
 
   constructor(private lugarService: LugarService) { }
 
   ngOnInit() {
-    this.getIndex()
+    this.dataSource = new LugaresDataSource(this.lugarService);
+    this.dataSource.carregarLugar();
   }
 
-  getIndex(){
-    this.lugarService.getIndex().subscribe(
-      (data) => {this.lugares = data}
-    )
-  }
-
-  DeleteItem(item){
-    this.lugarService.delete(item).subscribe(
-      () => {
-        console.log("deletado")        
-        this.getIndex()
-      },
-      (error) => {
-        console.log(error)
-      }
-
-    )
-
-
+  DeleteItem(item: Lugares){
+    this.dataSource.deletarItem(item);
   }
 
 }
