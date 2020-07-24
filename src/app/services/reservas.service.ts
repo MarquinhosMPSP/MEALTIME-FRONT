@@ -16,16 +16,16 @@ export class ReservasService {
     return this.http.get<Reserva[]>(`${this.api_url}/reservas`)
   }
 
-  getFiltros(data, status):Observable<Reserva[]>{
+  getFiltros(data):Observable<Reserva[]>{
     let dateAtual = new Date();
     data = data ? data :  dateAtual;
-    if(status){
-      return this.http.get<Reserva[]>(`${this.api_url}/reservas/filtro`, 
-      {params: {status: status, dataReserva: data}})
-    }else{
-      return this.http.get<Reserva[]>(`${this.api_url}/reservas/filtro`, 
-      {params: {dataReserva: data}})
-    } 
+    return this.http.get<Reserva[]>(`${this.api_url}/reservas/filtro`, 
+      {params: {dataReserva: data}}
+    )
+  }
+
+  atualizarReserva(item: Reserva):Observable<any>{
+    return this.http.put<any>(`${this.api_url}/reservas/${item.idReserva}`, {status:item.status});
   }
   
 }

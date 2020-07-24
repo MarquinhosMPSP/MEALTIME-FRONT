@@ -13,7 +13,7 @@ import * as moment from 'moment';
 })
 export class ReservasComponent implements OnInit {
 
-  displayedColumns: string[] = ['idReserva', 'status', 'pagamentoApp', 'dataReserva'];
+  displayedColumns: string[] = ['idReserva', 'status', 'pagamentoApp', 'dataReserva', 'acoes'];
   dataSource: ReservasDataSource;
 
   constructor(private reservasService: ReservasService) { }
@@ -24,23 +24,21 @@ export class ReservasComponent implements OnInit {
   }
 
   
-  status = 'todos';
   data = null;
   filtroData(event){
     this.data = new Date(event.value);
-    let dataFormat = this.data.toUTCString();
-    
-    this.dataSource.carregarReservasFiltro(dataFormat, this.status);
+    let dataFormat = this.data.toISOString();
+    this.dataSource.carregarReservasFiltro(dataFormat);
   }
 
-  filtroStatus(event){
-    this.status = event.value;
-    if(this.status !== 'todos'){
-      this.dataSource.carregarReservasFiltro(this.data, this.status)
-    }else{
-      this.dataSource.carregarReservas();
-    }
-    
+  aceitarReserva(item: Reserva){
+    item.status = "aceita";
+    this.dataSource.atualizarReserva(item);
+  }
+
+  recusarReserva(item: Reserva){
+    item.status = "cancelada"
+    this.dataSource.atualizarReserva(item);
   }
 
 }
