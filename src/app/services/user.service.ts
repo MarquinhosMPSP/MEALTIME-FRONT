@@ -7,23 +7,23 @@ export class UserService {
 
   constructor() { }
 
-  saveUserName(user) {
-    localStorage.setItem('user', user)
+  saveEmail(email) {
+    localStorage.setItem('email', email)
   }
 
-  getUserName() {
-    return localStorage.getItem('user')
-  }
-
-  saveUserCredentials(login, pass) {
-    localStorage.setItem('email', login)
-    localStorage.setItem('pass', pass)
-  }
-
-  getUserCredentials() {
+  getEmail() {
     const user = localStorage.getItem('email')
-    const pass = localStorage.getItem('pass')
-    return [user, pass]
+    return user
+  }
+
+  saveUser(user) {
+    localStorage.setItem('user', JSON.stringify(user))
+  }
+
+  getUser() {
+    const user = localStorage.getItem('user')
+    if (user) return JSON.parse(user)
+    return null
   }
 
 }

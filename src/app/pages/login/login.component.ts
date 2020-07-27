@@ -30,12 +30,12 @@ export class LoginComponent implements OnInit {
   }
 
   doLogin() {
-    if (this.lembrar) this.saveUser()
     this.authService.login(this.login, this.senha)
-      .subscribe(data => {
+    .subscribe(data => {
         if (data.token && data.usuario) {
+          this.saveUser(data.usuario)
           this.authService.setToken(data.token)
-          this.userService.saveUserName(data.usuario.nome)
+          this.userService.saveEmail(this.login)
           this.route.navigate(['/home'])
         }
       },
@@ -44,17 +44,13 @@ export class LoginComponent implements OnInit {
       })
   }
 
-  saveUser() {
-    this.userService.saveUserCredentials(this.login, this.senha)
+  saveUser(user) {
+    this.userService.saveUser(user)
   }
 
   getCachedUser() {
-    const [email, pass] = this.userService.getUserCredentials()
-
-    if (email && pass) {
-      this.login = email
-      this.senha = pass
-    }
+    const email = this.userService.getEmail()
+    if (email) this.login = email
   }
 
 }

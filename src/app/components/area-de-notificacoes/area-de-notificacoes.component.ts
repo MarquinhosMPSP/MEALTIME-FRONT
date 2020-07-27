@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
 import { NotificationService } from 'src/app/services/notification.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-area-de-notificacoes',
@@ -15,26 +16,24 @@ export class AreaDeNotificacoesComponent implements OnInit {
   notifications = []
   unreadNotifications = []
 
-  constructor(private notificationService: NotificationService) {
-    this.notificationService.getNotification().subscribe(notification => {
-      if (notification) {
-        this.notifications.push(notification)
-        if (!this.isOpen) this.unreadNotifications.push(notification)
-        this.notificationsNumber.emit(this.unreadNotifications.length)
-      }
-    })
+  constructor(
+    private notificationService: NotificationService,
+    private userService: UserService) {
+      const user = this.userService.getUser()
+      this.notificationService.connectToSocket(user.nomeRestaurante)
+      this.notificationService.getNotification().subscribe(notification => {
+        if (notification) {
+          this.notifications.push(notification)
+          if (!this.isOpen) this.unreadNotifications.push(notification)
+          this.notificationsNumber.emit(this.unreadNotifications.length)
+        }
+      })
   }
 
   ngOnInit() {
-    setTimeout(() => {
-      this.notificationService.sendNotification('Chegou uma nova reserva', 'success')
-      setTimeout(() => {
-        this.notificationService.sendNotification('Cancelaram uma reserva', 'error')
-        setTimeout(() => {
-          this.notificationService.sendNotification('Cliente chamando garçom na mesa 2', 'info')
-        }, 10000);
-      }, 4000);
-    }, 2000);
+    this.notificationService.listenTo('nova reseva', (data) => {
+      this.notificationService.sendNotification(`${data.nome} deseja fazer uma reserva`, 'success')
+    })
   }
 
   showNav() {

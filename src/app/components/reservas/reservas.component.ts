@@ -5,7 +5,6 @@ import { Reserva } from 'src/app/model/reserva';
 import { ReservasDataSource } from './reservas-data-source';
 import * as moment from 'moment';
 
-
 @Component({
   selector: 'app-reservas',
   templateUrl: './reservas.component.html',
@@ -23,7 +22,7 @@ export class ReservasComponent implements OnInit {
     this.dataSource.carregarReservas();
   }
 
-  
+
   data = null;
   filtroData(event){
     this.data = new Date(event.value);

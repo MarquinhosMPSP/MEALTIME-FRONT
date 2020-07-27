@@ -32,7 +32,7 @@ export class MainComponent implements OnInit {
     private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit() {
-    this.user = this.userService.getUserName()
+    this.user = this.userService.getUser().nome
     this.isHandset$.subscribe(result => this.canOpenNotification = !result)
   }
 
