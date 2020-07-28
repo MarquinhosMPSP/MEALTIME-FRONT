@@ -19,6 +19,10 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 import { NotifierModule } from "angular-notifier";
 import { AreaDeNotificacoesComponent } from './components/area-de-notificacoes/area-de-notificacoes.component';
 import { ReservasComponent } from './components/reservas/reservas.component';
+import { PendenteComponent } from './components/reservas/pendente/pendente.component';
+import { AceitaComponent } from './components/reservas/aceita/aceita.component';
+import { CanceladaComponent } from './components/reservas/cancelada/cancelada.component';
+import { FinalizadaComponent } from './components/reservas/finalizada/finalizada.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,11 @@ import { ReservasComponent } from './components/reservas/reservas.component';
     LoginComponent,
     MainComponent,
     AreaDeNotificacoesComponent,
-    ReservasComponent
+    ReservasComponent,
+    PendenteComponent,
+    AceitaComponent,
+    CanceladaComponent,
+    FinalizadaComponent
   ],
   imports: [
     BrowserModule,

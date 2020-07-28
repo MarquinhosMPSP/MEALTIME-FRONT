@@ -28,6 +28,7 @@ export class CardapioComponent implements OnInit {
   ngOnInit() {
     this.dataSource = new CardapioDataSource(this.cardapioService);
     this.dataSource.carregarCardapio();
+    this.cardapioService.getIndex();
   }
 
 

@@ -12,32 +12,9 @@ import * as moment from 'moment';
 })
 export class ReservasComponent implements OnInit {
 
-  displayedColumns: string[] = ['idReserva', 'status', 'pagamentoApp', 'dataReserva', 'acoes'];
-  dataSource: ReservasDataSource;
-
   constructor(private reservasService: ReservasService) { }
 
   ngOnInit() {
-    this.dataSource = new ReservasDataSource(this.reservasService);
-    this.dataSource.carregarReservas();
-  }
-
-
-  data = null;
-  filtroData(event){
-    this.data = new Date(event.value);
-    let dataFormat = this.data.toISOString();
-    this.dataSource.carregarReservasFiltro(dataFormat);
-  }
-
-  aceitarReserva(item: Reserva){
-    item.status = "aceita";
-    this.dataSource.atualizarReserva(item);
-  }
-
-  recusarReserva(item: Reserva){
-    item.status = "cancelada"
-    this.dataSource.atualizarReserva(item);
   }
 
 }

@@ -28,21 +28,29 @@ export class ReservasDataSource implements DataSource<Reserva>{
             .subscribe(reserva => this.reservaSubject$.next(reserva));
     };
 
-    carregarReservasFiltro(data){
-        this.reservasService.getFiltros(data)
+    carregarReservasFiltro(data, status){
+        this.reservasService.getFiltros(data, status)
         .pipe(
             catchError(() => of([]))
         )
         .subscribe(reserva => this.reservaSubject$.next(reserva));
     }
 
-    atualizarReserva(item){
-        this.reservasService.atualizarReserva(item)
+    carregarReservaFiltroStatus(status){
+        this.reservasService.getStatus(status)
+        .pipe(
+            catchError(() => of([]))
+        )
+        .subscribe(reserva => this.reservaSubject$.next(reserva))
+    }
+
+    atualizarReserva(item, status){
+        this.reservasService.atualizarReserva(item, status)
         .pipe(
             catchError(() => of([]))
         )
         .subscribe(
-            () => this.carregarReservas()
+            () => this.carregarReservaFiltroStatus('criada')
         )
     }
 
