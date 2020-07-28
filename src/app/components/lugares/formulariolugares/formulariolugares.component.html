@@ -13,8 +13,8 @@
           </div>
           <div fxLayout="row" fxLayoutAlign="space-between">
             <mat-form-field fxFlex=30>
-              <input matInput required placeholder="Quantidade de Lugares" type="number" formControlName="quantidadeLugares">
-              <span matPrefix>quantidadeLugares</span>
+              <input min="2" matInput required placeholder="Quantidade de Lugares" type="number" formControlName="quantidadeLugares">
+              <span matPrefix></span>
             </mat-form-field>
             <mat-form-field fxFlex=30 floatLabel="always" appearance="none">
               <mat-label>Disponibilidade</mat-label>

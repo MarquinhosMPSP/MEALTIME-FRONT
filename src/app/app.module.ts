@@ -19,10 +19,14 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 import { NotifierModule } from "angular-notifier";
 import { AreaDeNotificacoesComponent } from './components/area-de-notificacoes/area-de-notificacoes.component';
 import { ReservasComponent } from './components/reservas/reservas.component';
+<<<<<<< HEAD
 import { PendenteComponent } from './components/reservas/pendente/pendente.component';
 import { AceitaComponent } from './components/reservas/aceita/aceita.component';
 import { CanceladaComponent } from './components/reservas/cancelada/cancelada.component';
 import { FinalizadaComponent } from './components/reservas/finalizada/finalizada.component';
+=======
+import { FormulariolugaresComponent } from './components/lugares/formulariolugares/formulariolugares.component';
+>>>>>>> @{-1}
 
 @NgModule({
   declarations: [
@@ -35,10 +39,14 @@ import { FinalizadaComponent } from './components/reservas/finalizada/finalizada
     MainComponent,
     AreaDeNotificacoesComponent,
     ReservasComponent,
+<<<<<<< HEAD
     PendenteComponent,
     AceitaComponent,
     CanceladaComponent,
     FinalizadaComponent
+=======
+    FormulariolugaresComponent
+>>>>>>> @{-1}
   ],
   imports: [
     BrowserModule,
@@ -67,7 +75,8 @@ import { FinalizadaComponent } from './components/reservas/finalizada/finalizada
     MaterialModule
   ],
   entryComponents:[
-    FormularioComponent
+    FormularioComponent,
+    FormulariolugaresComponent
   ],
   providers: [
     {
