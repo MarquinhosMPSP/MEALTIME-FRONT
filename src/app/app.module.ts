@@ -19,6 +19,7 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 import { NotifierModule } from "angular-notifier";
 import { AreaDeNotificacoesComponent } from './components/area-de-notificacoes/area-de-notificacoes.component';
 import { ReservasComponent } from './components/reservas/reservas.component';
+import { FormulariolugaresComponent } from './components/lugares/formulariolugares/formulariolugares.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ReservasComponent } from './components/reservas/reservas.component';
     LoginComponent,
     MainComponent,
     AreaDeNotificacoesComponent,
-    ReservasComponent
+    ReservasComponent,
+    FormulariolugaresComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,8 @@ import { ReservasComponent } from './components/reservas/reservas.component';
     MaterialModule
   ],
   entryComponents:[
-    FormularioComponent
+    FormularioComponent,
+    FormulariolugaresComponent
   ],
   providers: [
     {
