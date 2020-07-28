@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apiURL: 'http://localhost:3333',
-  notificationServer: 'http://localhost:3000',
+  apiURL: 'https://staging-mealtime-api.herokuapp.com',
+  notificationServer: 'https://charon-push.herokuapp.com',
 };
 
 /*
