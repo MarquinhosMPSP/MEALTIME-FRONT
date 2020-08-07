@@ -24,6 +24,7 @@ import { AceitaComponent } from './components/reservas/aceita/aceita.component';
 import { CanceladaComponent } from './components/reservas/cancelada/cancelada.component';
 import { FinalizadaComponent } from './components/reservas/finalizada/finalizada.component';
 import { FormulariolugaresComponent } from './components/lugares/formulariolugares/formulariolugares.component';
+import { PedidosComponent } from './components/pedidos/pedidos.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { FormulariolugaresComponent } from './components/lugares/formulariolugar
     AceitaComponent,
     CanceladaComponent,
     FinalizadaComponent,
-    FormulariolugaresComponent
+    FormulariolugaresComponent,
+    PedidosComponent
   ],
   imports: [
     BrowserModule,

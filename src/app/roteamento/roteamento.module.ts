@@ -10,6 +10,7 @@ import { MainComponent } from '../pages/main/main.component';
 import { OwnerGuard } from '../guards/owner.guard';
 import { RememberLoginGuard } from '../guards/remember-login.guard';
 import { ReservasComponent } from '../components/reservas/reservas.component';
+import { PedidosComponent } from '../components/pedidos/pedidos.component';
 
 const appRoutes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login'},
@@ -19,7 +20,8 @@ const appRoutes: Routes = [
       { path: 'lugares', component: LugaresComponent },
       { path: 'cardapio', component: CardapioComponent },
       { path: 'cardapio/formulario', component: FormularioComponent },
-      { path: 'reservas', component: ReservasComponent }
+      { path: 'reservas', component: ReservasComponent },
+      { path: 'pedidos', component: PedidosComponent }
     ]
   },
   { path: '**', component: PageNotFoundComponent },
