@@ -25,6 +25,8 @@ import { CanceladaComponent } from './components/reservas/cancelada/cancelada.co
 import { FinalizadaComponent } from './components/reservas/finalizada/finalizada.component';
 import { FormulariolugaresComponent } from './components/lugares/formulariolugares/formulariolugares.component';
 import { PedidosComponent } from './components/pedidos/pedidos.component';
+import { CadastroComponent } from './pages/cadastro/cadastro.component';
+import { PromocaoComponent } from './components/promocao/promocao.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { PedidosComponent } from './components/pedidos/pedidos.component';
     CanceladaComponent,
     FinalizadaComponent,
     FormulariolugaresComponent,
-    PedidosComponent
+    PedidosComponent,
+    CadastroComponent,
+    PromocaoComponent
   ],
   imports: [
     BrowserModule,

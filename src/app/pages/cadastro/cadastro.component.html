@@ -1,0 +1,103 @@
+<div class="background">
+
+  <form class="login" [formGroup]="cadastroForm" (ngSubmit)="cadastrar()" fxLayout="column" fxLayoutAlign="center center">
+
+    <mat-card class="login-box" fxLayout="column" fxLayoutAlign="center center">
+      <mat-card-title-group fxLayout="column" fxLayoutAlign="center center">
+        <img src="../../../assets/img/logo.png" width="250" alt="Logo">
+      </mat-card-title-group>
+      
+      <mat-card-content class="content">
+          
+          <div fxLayout="row" fxLayoutAlign="start start">
+            <mat-form-field fxFlex=100>
+              <input matInput required placeholder="Nome do Restaurante" formControlName="nomeRestaurante">
+            </mat-form-field>
+          </div>
+          
+          <div fxLayout="row" fxLayoutAlign="space-between">
+            <mat-form-field fxFlex=47.5>
+              <input matInput required  type="text" placeholder="CNPJ" formControlName="cnpj">
+            </mat-form-field>
+
+            <mat-form-field fxFlex=47.5>
+              <mat-label>Selecione uma categoria</mat-label>
+              <mat-select [(value)]="selected" formControlName="categoria">
+                <mat-option>None</mat-option>
+                <mat-option value="Brasileira">Brasileira</mat-option>
+                <mat-option value="Nordestina">Nordestina</mat-option>
+                <mat-option value="Mineira">Mineira</mat-option>
+                <mat-option value="Italiana">Italiana</mat-option>
+                <mat-option value="Francesa">Francesa</mat-option>
+                <mat-option value="Portuguesa">Portuguesa</mat-option>
+                <mat-option value="Frutos do mar">Frutos do mar</mat-option>
+                <mat-option value="Fast Food">Fast Food</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div fxLayout="row" fxLayoutAlign="space-between">
+            <mat-form-field fxFlex=100>
+              <input matInput required placeholder="Rua" formControlName="rua">
+            </mat-form-field>
+          </div>
+
+          <div fxLayout="row" fxLayoutAlign="space-between">
+            <mat-form-field fxFlex=50>
+              <input matInput required placeholder="Bairro" formControlName="bairro">
+            </mat-form-field>
+
+            <mat-form-field fxFlex=25>
+              <input matInput required type="text" placeholder="CEP" formControlName="cep">
+            </mat-form-field>
+
+            <mat-form-field fxFlex=10>
+              <input matInput required  type="text" placeholder="Nº" formControlName="numero">
+            </mat-form-field>
+          </div>
+
+          <div fxLayout="row" fxLayoutAlign="space-between">
+            <mat-form-field fxFlex=47.5>
+              <input matInput required placeholder="Cidade" formControlName="cidade">
+            </mat-form-field>
+
+            <mat-form-field fxFlex=47.5>
+              <input matInput required placeholder="Estado" formControlName="estado">
+            </mat-form-field>
+          </div>
+
+          <div fxLayout="row">
+            <mat-form-field fxFlex=100>
+              <textarea matInput required placeholder="Descrição"
+              formControlName="descricao"></textarea>
+            </mat-form-field>
+          </div>
+
+          <div fxLayout="row" fxLayoutAlign="space-between">
+            <mat-form-field fxFlex=30>
+              <input matInput required placeholder="Nome" formControlName="nome">
+            </mat-form-field>
+
+            <mat-form-field fxFlex=30>
+              <input matInput required placeholder="Login" formControlName="login">
+            </mat-form-field>
+
+            <mat-form-field fxFlex=30>
+              <input matInput required placeholder="Senha" formControlName="senha">
+            </mat-form-field>
+          </div>
+
+
+          
+
+          <div mat-dialog-actions>
+            <button mat-button color="primary" fxFlex="10" [disabled]="cadastroForm.invalid" type="submit">Cadastrar</button>
+            <button mat-button color="warn" fxFlex="10" type="reset" routerLink="/login">Voltar</button>
+          </div>
+
+
+      </mat-card-content>
+    </mat-card>
+  </form>
+</div>
+

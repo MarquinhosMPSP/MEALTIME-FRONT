@@ -11,9 +11,12 @@ import { OwnerGuard } from '../guards/owner.guard';
 import { RememberLoginGuard } from '../guards/remember-login.guard';
 import { ReservasComponent } from '../components/reservas/reservas.component';
 import { PedidosComponent } from '../components/pedidos/pedidos.component';
+import { CadastroComponent } from '../pages/cadastro/cadastro.component';
+import { PromocaoComponent } from '../components/promocao/promocao.component';
 
 const appRoutes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login'},
+  { path: 'cadastro', component: CadastroComponent },
   { path: 'login', component: LoginComponent, canActivate: [RememberLoginGuard] },
   { path: 'home', component: MainComponent, canActivate: [OwnerGuard], canActivateChild: [OwnerGuard], children: [
       { path: '', pathMatch: 'full', redirectTo: 'cardapio' },
@@ -21,7 +24,9 @@ const appRoutes: Routes = [
       { path: 'cardapio', component: CardapioComponent },
       { path: 'cardapio/formulario', component: FormularioComponent },
       { path: 'reservas', component: ReservasComponent },
-      { path: 'pedidos', component: PedidosComponent }
+      { path: 'pedidos', component: PedidosComponent },
+      { path: 'promocao', component: PromocaoComponent }
+
     ]
   },
   { path: '**', component: PageNotFoundComponent },
