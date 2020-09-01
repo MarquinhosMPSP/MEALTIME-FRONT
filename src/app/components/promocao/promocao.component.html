@@ -1,0 +1,27 @@
+<div fxLayout="column" fxLayoutAlign="center-center stretch">
+  <div fxFlex="10">
+    <mat-card>
+      <div fxLayout="row">
+        <mat-card-title-group fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100">
+          <mat-card-title>Promoção</mat-card-title>
+          <mat-card-subtitle>
+              <span>Cadastre Promoções em produtos</span>
+          </mat-card-subtitle>
+    </mat-card-title-group>
+  </div>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item *ngFor="let item of promocao$ | async">
+            <h4 mat-line>{{item.nome}} - R${{item.preco}}</h4>
+            <h4 mat-line>Valor com promoção:R${{item.preco}}</h4>
+            <h4 mat-line style="color:red; font-weight: bold;">Promoção: 15%</h4>
+            <button mat-icon-button color="primary">
+              <mat-icon>add_circle_outline</mat-icon>
+            </button>
+            <mat-divider></mat-divider>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
