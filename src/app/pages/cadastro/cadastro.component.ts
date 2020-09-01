@@ -14,7 +14,7 @@ export class CadastroComponent implements OnInit {
     nomeRestaurante: ['', [Validators.required]],
     cnpj: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
     categoria: ['', [Validators.required]],
-    rua: ['', [Validators.required]],
+    endereco: ['', [Validators.required]],
     bairro: ['', [Validators.required]],
     numero: ['', [Validators.required]],
     cep: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
