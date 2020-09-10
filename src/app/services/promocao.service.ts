@@ -16,7 +16,13 @@ export class PromocaoService {
     return this.http.get<Cardapio[]>(`${this.api_url}/itens`)
   }
 
-  editar(id:number, item: Cardapio):Observable<Cardapio>{
-    return this.http.put<Cardapio>(`${this.api_url}/itens/${id}`, item)
+  editar(id:number, porcentagem: any):Observable<Cardapio>{
+    let promocao:number = porcentagem.desconto;
+    let tratado = {
+      idItem: id,
+      promocao: promocao
+    }
+    console.log(tratado);
+    return this.http.patch<Cardapio>(`${this.api_url}/itens/promocao`, tratado)
   }
 }

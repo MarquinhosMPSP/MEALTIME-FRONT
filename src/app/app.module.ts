@@ -27,6 +27,7 @@ import { FormulariolugaresComponent } from './components/lugares/formulariolugar
 import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { PromocaoComponent } from './components/promocao/promocao.component';
+import { AtualizadorComponent } from './components/promocao/atualizador/atualizador.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { PromocaoComponent } from './components/promocao/promocao.component';
     FormulariolugaresComponent,
     PedidosComponent,
     CadastroComponent,
-    PromocaoComponent
+    PromocaoComponent,
+    AtualizadorComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +78,8 @@ import { PromocaoComponent } from './components/promocao/promocao.component';
   ],
   entryComponents:[
     FormularioComponent,
-    FormulariolugaresComponent
+    FormulariolugaresComponent,
+    AtualizadorComponent
   ],
   providers: [
     {
