@@ -19,10 +19,6 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 import { NotifierModule } from "angular-notifier";
 import { AreaDeNotificacoesComponent } from './components/area-de-notificacoes/area-de-notificacoes.component';
 import { ReservasComponent } from './components/reservas/reservas.component';
-import { PendenteComponent } from './components/reservas/pendente/pendente.component';
-import { AceitaComponent } from './components/reservas/aceita/aceita.component';
-import { CanceladaComponent } from './components/reservas/cancelada/cancelada.component';
-import { FinalizadaComponent } from './components/reservas/finalizada/finalizada.component';
 import { FormulariolugaresComponent } from './components/lugares/formulariolugares/formulariolugares.component';
 import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
@@ -40,10 +36,6 @@ import { AtualizadorComponent } from './components/promocao/atualizador/atualiza
     MainComponent,
     AreaDeNotificacoesComponent,
     ReservasComponent,
-    PendenteComponent,
-    AceitaComponent,
-    CanceladaComponent,
-    FinalizadaComponent,
     FormulariolugaresComponent,
     PedidosComponent,
     CadastroComponent,

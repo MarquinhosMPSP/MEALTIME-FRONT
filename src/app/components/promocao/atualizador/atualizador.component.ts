@@ -11,7 +11,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class AtualizadorComponent implements OnInit {
 
   promoForm: FormGroup = this.fb.group({
-    desconto: [5, [Validators.required, Validators.min(5), Validators.max(95)]]
+    desconto: [0, [Validators.required, Validators.max(95)]]
   });
   
   private idItem = null;

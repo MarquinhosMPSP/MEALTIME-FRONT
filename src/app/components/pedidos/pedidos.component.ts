@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import { PedidosService } from 'src/app/services/pedidos.service';
+import { PedidoDataSource } from './pedido-data-source';
 
 export interface Pedidos{
   idPedido: number;
@@ -90,13 +92,15 @@ const ELEMENT_DATA: PeriodicElement[] = [
   ],
 })
 export class PedidosComponent implements OnInit {
-  dataSource = ELEMENT_DATA;
-  columnsToDisplay = ['idReserva', 'nomeCliente', 'nomeMesa', 'dataReserva'];
+  dataSource: PedidoDataSource;
+  columnsToDisplay = ['idComanda', "valorTotal"];
   expandedElement: PeriodicElement | null;
 
-  constructor() { }
+  constructor(private pedidosService: PedidosService) { }
 
   ngOnInit() {
+    this.dataSource = new PedidoDataSource(this.pedidosService);
+    this.dataSource.carregarPedido();
   }
 
 }
