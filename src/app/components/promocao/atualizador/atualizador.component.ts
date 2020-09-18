@@ -14,8 +14,8 @@ export class AtualizadorComponent implements OnInit {
     desconto: [0, [Validators.required, Validators.max(95)]]
   });
   
-  private idItem = null;
-  private dados = null;
+  public idItem = null;
+  public dados = null;
 
   constructor(
     public dialogRef: MatDialogRef<AtualizadorComponent>,
