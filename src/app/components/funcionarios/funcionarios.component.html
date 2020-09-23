@@ -1,0 +1,47 @@
+<div fxLayout="column" fxLayoutAlign="center-center stretch">
+  <div fxFlex="10">
+    <mat-card>
+      <div fxLayout="row">
+        <mat-card-title-group fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100">
+          <mat-card-title>Funcionários</mat-card-title>
+          <mat-card-subtitle>
+              <span>Aqui você pode cadastrar os funcionários do seu restaurante para criar comandas e fazer pedidos pelo aplicativo</span>
+          </mat-card-subtitle>
+    </mat-card-title-group>
+  </div>
+      <mat-card-content>
+        <form [formGroup]="funcionarioForm" (ngSubmit)="save()" fxLayout="column" fxLayoutAlign="space-between" #form="ngForm">
+
+          <div fxLayout="row" fxLayoutAlign="space-between">
+            <mat-form-field fxFlex=25>
+              <input matInput required placeholder="Nome" type="text" formControlName="nome">
+              <span matPrefix></span>
+            </mat-form-field>
+            <mat-form-field fxFlex=25>
+              <input matInput required placeholder="Login" type="text" formControlName="login">
+            </mat-form-field>
+            <mat-form-field fxFlex=25>
+              <input matInput required placeholder="Senha" type="text" formControlName="senha">
+            </mat-form-field>
+
+            <button mat-button color="primary" fxFlex="10" [disabled]="funcionarioForm.invalid" type="submit">Salvar</button>
+          </div>
+        </form>
+        <br>
+
+        <h4>Funcionários cadastrados</h4>
+        <mat-list>
+          <mat-list-item *ngFor="let item of funcionarios$ | async">
+            <mat-icon color="primary" mat-list-icon>account_circle</mat-icon>
+            <div mat-line>Nome: {{item.nome}}</div>  
+            <div mat-line>Login: {{item.login}}</div>  
+            <div mat-line>Senha: {{item.senha}}</div>
+            <mat-divider></mat-divider>    
+          </mat-list-item>
+        </mat-list>
+        
+       
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

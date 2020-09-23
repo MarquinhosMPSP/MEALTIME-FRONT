@@ -2,15 +2,17 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Cardapio } from '../model/cardapio';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CardapioService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private userService: UserService) { }
 
   public api_url:string = 'https://staging-mealtime-api.herokuapp.com';
+  public user = this.userService.getUser();
 
   getIndex():Observable<Cardapio[]>{
     return this.http.get<Cardapio[]>(`${this.api_url}/itens`)
@@ -21,11 +23,12 @@ export class CardapioService {
   }
 
   cadastrar(item: Cardapio):Observable<Cardapio>{
-    return this.http.post<Cardapio>(`${this.api_url}/itens`, item)
+    return this.http.post<Cardapio>(`${this.api_url}/itens`, {...item, idRestaurante: this.user})
   }
 
   editar(id:number, item: Cardapio):Observable<Cardapio>{
     return this.http.put<Cardapio>(`${this.api_url}/itens/${id}`, item)
   }
+
 
 }
