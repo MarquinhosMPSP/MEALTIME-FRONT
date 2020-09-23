@@ -24,6 +24,8 @@ import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { PromocaoComponent } from './components/promocao/promocao.component';
 import { AtualizadorComponent } from './components/promocao/atualizador/atualizador.component';
+import { FaqComponent } from './components/faq/faq.component';
+import { FuncionariosComponent } from './components/funcionarios/funcionarios.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { AtualizadorComponent } from './components/promocao/atualizador/atualiza
     PedidosComponent,
     CadastroComponent,
     PromocaoComponent,
-    AtualizadorComponent
+    AtualizadorComponent,
+    FaqComponent,
+    FuncionariosComponent
   ],
   imports: [
     BrowserModule,

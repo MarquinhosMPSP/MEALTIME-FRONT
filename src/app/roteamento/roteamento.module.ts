@@ -13,6 +13,8 @@ import { ReservasComponent } from '../components/reservas/reservas.component';
 import { PedidosComponent } from '../components/pedidos/pedidos.component';
 import { CadastroComponent } from '../pages/cadastro/cadastro.component';
 import { PromocaoComponent } from '../components/promocao/promocao.component';
+import { FaqComponent } from '../components/faq/faq.component';
+import { FuncionariosComponent } from '../components/funcionarios/funcionarios.component';
 
 const appRoutes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login'},
@@ -25,7 +27,9 @@ const appRoutes: Routes = [
       { path: 'cardapio/formulario', component: FormularioComponent },
       { path: 'reservas', component: ReservasComponent },
       { path: 'pedidos', component: PedidosComponent },
-      { path: 'promocao', component: PromocaoComponent }
+      { path: 'promocao', component: PromocaoComponent },
+      { path: 'faq', component: FaqComponent },
+      { path: 'funcionarios', component: FuncionariosComponent}
 
     ]
   },
