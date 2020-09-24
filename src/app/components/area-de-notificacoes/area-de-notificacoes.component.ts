@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { NotificationService } from 'src/app/services/notification.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -18,6 +19,7 @@ export class AreaDeNotificacoesComponent implements OnInit {
 
   constructor(
     private notificationService: NotificationService,
+    private router: Router,
     private userService: UserService) {
       const user = this.userService.getUser()
       this.notificationService.connectToSocket(user.nomeRestaurante)
@@ -50,6 +52,15 @@ export class AreaDeNotificacoesComponent implements OnInit {
 
   removeNotification(notification) {
     this.notifications = this.notifications.filter(n => n !== notification)
+  }
+
+  ngOnDestroy(): void {
+    this.notificationService.disconnect()
+  }
+
+  navigateTo(route) {
+    this.router.navigate([route])
+    this.closeNav()
   }
 
 }

@@ -138,3 +138,7 @@ select:-webkit-autofill:focus {
 .mat-drawer-container {
   z-index: 2!important;
 }
+
+.is-clickable {
+  cursor: pointer;
+}

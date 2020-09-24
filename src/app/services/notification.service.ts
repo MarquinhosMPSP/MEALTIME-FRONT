@@ -28,8 +28,20 @@ export class NotificationService {
     this.notifier.notify(type, message)
   }
 
+  onlyShowNotification(message: string, type: string) {
+    this.notifier.notify(type, message)
+  }
+
   getNotification(): Observable<any> {
     return this.notifications$.asObservable()
+  }
+
+  disconnect() {
+    try {
+      this.socket.close()
+    } catch (error) {
+      console.error(error);
+    }
   }
 
 }

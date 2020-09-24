@@ -13,7 +13,14 @@
             (click)="removeNotification(notification)" mat-icon-button>
               <mat-icon>close</mat-icon>
             </button>
-            {{notification.message}}
+            <label>
+              {{notification.message}}
+            </label>
+            <button *ngIf="notification.route" type="button" class="is-clickable"
+            (click)="navigateTo(notification.route)"
+            aria-label="Notifications" mat-icon-button>
+              <mat-icon>arrow_forward</mat-icon>
+            </button>
           </span>
           <mat-divider></mat-divider>
         </ng-container>
