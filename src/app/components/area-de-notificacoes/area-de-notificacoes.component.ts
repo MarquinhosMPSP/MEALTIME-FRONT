@@ -25,6 +25,8 @@ export class AreaDeNotificacoesComponent implements OnInit {
       this.notificationService.connectToSocket(user.nomeRestaurante)
       this.notificationService.getNotification().subscribe(notification => {
         if (notification) {
+          console.log(notification);
+
           this.notifications.push(notification)
           if (!this.isOpen) this.unreadNotifications.push(notification)
           this.notificationsNumber.emit(this.unreadNotifications.length)
@@ -34,7 +36,10 @@ export class AreaDeNotificacoesComponent implements OnInit {
 
   ngOnInit() {
     this.notificationService.listenTo('nova reseva', (data) => {
-      this.notificationService.sendNotification(`${data.nome} deseja fazer uma reserva`, 'success')
+      this.notificationService.sendNotification(`${data.nome} deseja fazer uma reserva`, 'success', ...data)
+    })
+    this.notificationService.listenTo('novo pedido', (data) => {
+      this.notificationService.sendNotification(`Novo pedido da comanda #${data.idComanda}`, 'success', ...data)
     })
   }
 

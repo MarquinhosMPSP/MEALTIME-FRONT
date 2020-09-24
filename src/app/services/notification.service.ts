@@ -23,8 +23,8 @@ export class NotificationService {
     this.socket.on(event, fn)
   }
 
-  sendNotification(message: string, type: string): void {
-    this.notifications$.next({ message, type })
+  sendNotification(message: string, type: string, params?: any): void {
+    this.notifications$.next({ message, type, params })
     this.notifier.notify(type, message)
   }
 

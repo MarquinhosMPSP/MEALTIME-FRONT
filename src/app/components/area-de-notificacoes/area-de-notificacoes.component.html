@@ -16,8 +16,8 @@
             <label>
               {{notification.message}}
             </label>
-            <button *ngIf="notification.route" type="button" class="is-clickable"
-            (click)="navigateTo(notification.route)"
+            <button *ngIf="notification.params && notification.params.route" type="button" class="is-clickable"
+            (click)="navigateTo(notification.params.route)"
             aria-label="Notifications" mat-icon-button>
               <mat-icon>arrow_forward</mat-icon>
             </button>
