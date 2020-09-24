@@ -23,7 +23,7 @@ export class CardapioService {
   }
 
   cadastrar(item: Cardapio):Observable<Cardapio>{
-    return this.http.post<Cardapio>(`${this.api_url}/itens`, {...item, idRestaurante: this.user})
+    return this.http.post<Cardapio>(`${this.api_url}/itens`, {...item, idRestaurante: this.user.idRestaurante})
   }
 
   editar(id:number, item: Cardapio):Observable<Cardapio>{

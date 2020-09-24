@@ -85,7 +85,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./pedidos.component.scss'],
   animations: [
     trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0'})),
+      state('collapsed', style({height: '0px', minHeight: '0', display: 'none'})),
       state('expanded', style({height: '*'})),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ]),
@@ -103,4 +103,15 @@ export class PedidosComponent implements OnInit {
     this.dataSource.carregarPedido();
   }
 
+  atualizar(){
+    this.dataSource.carregarPedido();
+  }
+
+  emProgresso(item, comanda){
+    this.dataSource.emProgresso(item, comanda);
+  } 
+
+  finalizar(item, comanda){
+    this.dataSource.finalizar(item, comanda);
+  } 
 }

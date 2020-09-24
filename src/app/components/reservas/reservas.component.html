@@ -14,6 +14,9 @@
               <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
               <mat-datepicker #picker4></mat-datepicker>
             </mat-form-field>
+            <button mat-icon-button color="warn" aria-label="limpar" (click)="limparFiltro()">
+              <mat-icon>close</mat-icon>
+            </button>
           </div>
           <mat-divider></mat-divider>
           <table mat-table [dataSource]="dataSource4" class="mat-elevation-z8">
@@ -78,6 +81,11 @@
             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
             <mat-datepicker #picker1></mat-datepicker>
           </mat-form-field>
+          <button mat-icon-button color="warn" aria-label="limpar" (click)="limparFiltro()">
+            <mat-icon>close</mat-icon>
+          </button>
+
+          
           <table mat-table [dataSource]="dataSource1" class="mat-elevation-z8">
 
             <ng-container matColumnDef="idReserva">
@@ -128,6 +136,9 @@
             <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
             <mat-datepicker #picker2></mat-datepicker>
           </mat-form-field>
+          <button mat-icon-button color="warn" aria-label="limpar" (click)="limparFiltro()">
+            <mat-icon>close</mat-icon>
+          </button>
           <table mat-table [dataSource]="dataSource2" class="mat-elevation-z8">
 
             <ng-container matColumnDef="idReserva">
@@ -178,6 +189,9 @@
             <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
             <mat-datepicker #picker3></mat-datepicker>
           </mat-form-field>
+          <button mat-icon-button color="warn" aria-label="limpar" (click)="limparFiltro()">
+            <mat-icon>close</mat-icon>
+          </button>
           <table mat-table [dataSource]="dataSource3" class="mat-elevation-z8">
 
             <ng-container matColumnDef="idReserva">

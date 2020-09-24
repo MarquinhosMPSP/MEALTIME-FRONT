@@ -61,14 +61,15 @@ export class ReservasComponent implements OnInit {
 
   aceitarReserva(item: Reserva){
     this.dataSource4.atualizarReserva(item, 'aceita');
-    this.dataSource1.carregarReservaFiltroStatus('aceita');
-    this.dataSource2.carregarReservaFiltroStatus('cancelada');
-    this.dataSource3.carregarReservaFiltroStatus('finalizada');
-    this.dataSource4.carregarReservaFiltroStatus('criada');
+    this.limparFiltro();
   }
 
   recusarReserva(item: Reserva){
     this.dataSource4.atualizarReserva(item, 'cancelada');
+    this.limparFiltro();
+  }
+
+  limparFiltro(){
     this.dataSource1.carregarReservaFiltroStatus('aceita');
     this.dataSource2.carregarReservaFiltroStatus('cancelada');
     this.dataSource3.carregarReservaFiltroStatus('finalizada');

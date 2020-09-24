@@ -30,4 +30,28 @@ export class PedidoDataSource implements DataSource<Pedidos>{
                         this.pedidosSubject$.next(pedidos);
                     });
         };
+
+        emProgresso(item, comanda){
+            this.pedidoService.atualizar(item, comanda)
+                .pipe(
+                    catchError(() => of([]))
+                )
+                .subscribe(
+                    () => {
+                        this.carregarPedido();
+                    }
+                )
+        }
+
+        finalizar(item, comanda){
+            this.pedidoService.finalizar(item, comanda)
+                .pipe(
+                    catchError(() => of([]))
+                )
+                .subscribe(
+                    () => {
+                        this.carregarPedido();
+                    }
+                )
+        }
 }
