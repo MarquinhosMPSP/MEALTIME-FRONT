@@ -17,12 +17,17 @@
 
           <ng-container matColumnDef="idComanda">
             <th mat-header-cell *matHeaderCellDef> ID Comanda </th>
-            <td mat-cell *matCellDef="let pedidos"> {{pedidos.idComanda}} </td>
+            <td mat-cell *matCellDef="let pedidos"> #{{pedidos.idComanda}} </td>
           </ng-container>
 
           <ng-container matColumnDef="valorTotal">
             <th mat-header-cell *matHeaderCellDef> Valor Total </th>
-            <td mat-cell *matCellDef="let pedidos"> R${{pedidos.valorTotal }} </td>
+            <td mat-cell *matCellDef="let pedidos">{{pedidos.valorTotal | currency:'BRL':true:'1.2-2' }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="data">
+            <th mat-header-cell *matHeaderCellDef> Data e Hora </th>
+            <td mat-cell *matCellDef="let pedidos">{{pedidos.pedidos[0].dataPedido | date:'dd/MM/yyyy HH:mm' }} </td>
           </ng-container>
 
           <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
@@ -35,7 +40,7 @@
                     <mat-icon color="primary" mat-list-icon>fastfood</mat-icon>
                     <div mat-line>Pedido: {{item.idPedido}}</div>
                     <div mat-line>{{item.nome}} - R${{item.precoCalculado}}</div>
-
+                    
                     <button *ngIf="item.status === 'criado'" mat-button color="primary" aria-label="atualizar" (click)="emProgresso(item, element)">
                       <mat-icon>forward</mat-icon>
                       Em progresso
