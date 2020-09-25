@@ -93,7 +93,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class PedidosComponent implements OnInit {
   dataSource: PedidoDataSource;
-  columnsToDisplay = ['idComanda', "valorTotal"];
+  columnsToDisplay = ['idComanda', "valorTotal", "data"];
   expandedElement: PeriodicElement | null;
 
   constructor(private pedidosService: PedidosService) { }
