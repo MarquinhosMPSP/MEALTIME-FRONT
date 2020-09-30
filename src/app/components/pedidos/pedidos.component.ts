@@ -17,67 +17,6 @@ export interface PeriodicElement {
   pedidos: Pedidos[]
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {
-    idReserva: 1,
-    nomeCliente: 'João Marcos',
-    nomeMesa: 'Mesa 1',
-    dataReserva: new Date(),
-    pedidos: [
-      {
-        idPedido: 1,
-        nomeItem: 'Feijoada',
-        preco: 27.99
-      },
-      {
-        idPedido: 2,
-        nomeItem: 'Brasileiro',
-        preco: 27.99
-      }
-    ]
-  },
-  {
-    idReserva: 2,
-    nomeCliente: 'Robson de Assis',
-    nomeMesa: 'Mesa 2',
-    dataReserva: new Date(),
-    pedidos: [
-      {
-        idPedido: 10,
-        nomeItem: '	Bife a cavalo	',
-        preco: 27.99
-      }
-    ]
-  },
-  {
-    idReserva: 3,
-    nomeCliente: 'Daniel Lucas',
-    nomeMesa: 'Mesa 4',
-    dataReserva: new Date(),
-    pedidos: [
-      {
-        idPedido: 1,
-        nomeItem: 'Feijoada',
-        preco: 27.99
-      },
-      {
-        idPedido: 2,
-        nomeItem: 'Brasileiro',
-        preco: 27.99
-      },
-      {
-        idPedido: 10,
-        nomeItem: '	Bife a cavalo	',
-        preco: 27.99
-      },
-      {
-        idPedido: 10,
-        nomeItem: '	Bife a cavalo	',
-        preco: 27.99
-      },
-    ]
-  }
-];
 
 @Component({
   selector: 'app-pedidos',
@@ -93,7 +32,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class PedidosComponent implements OnInit {
   dataSource: PedidoDataSource;
-  columnsToDisplay = ['idComanda', "valorTotal", "data"];
+  columnsToDisplay = ['idComanda', "valorTotal", "mesa", "data"];
   expandedElement: PeriodicElement | null;
 
   constructor(private pedidosService: PedidosService) { }
