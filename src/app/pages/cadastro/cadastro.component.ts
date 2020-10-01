@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CadastroRestauranteService } from 'src/app/services/cadastro-restaurante.service';
 
 
@@ -28,15 +29,15 @@ export class CadastroComponent implements OnInit {
 
   constructor(
     private cadastroRestauranteService: CadastroRestauranteService,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    private router: Router ) { }
 
   ngOnInit() {
   }
 
   cadastrar(){
     this.cadastroRestauranteService.cadastrar(this.cadastroForm.value);
-
-    this.cadastroRestauranteService.getIndex();
+    this.router.navigate(['/login']);
   }
 
 }
