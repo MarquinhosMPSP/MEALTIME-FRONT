@@ -22,9 +22,9 @@
           <table mat-table [dataSource]="dataSource4" class="mat-elevation-z8">
 
             <ng-container matColumnDef="idReserva">
-              <th mat-header-cell *matHeaderCellDef>#ID</th>
+              <th mat-header-cell *matHeaderCellDef>#Comanda</th>
               <td mat-cell *matCellDef="let reserva">
-                {{reserva.idReserva}}
+                {{reserva.idComanda}}
               </td>
             </ng-container>
         
@@ -44,12 +44,34 @@
                 <mat-icon *ngIf="reserva.pagamentoApp" style="color: rgb(53, 219, 150);">done</mat-icon>
               </td>
             </ng-container>
+
+            <ng-container matColumnDef="nomeMesa">
+              <th mat-header-cell *matHeaderCellDef>Mesa</th>
+              <td mat-cell *matCellDef="let reserva">
+                {{reserva.nomeMesa}}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="nome">
+              <th mat-header-cell *matHeaderCellDef>Nome</th>
+              <td mat-cell *matCellDef="let reserva">
+                {{reserva.nome}}
+              </td>
+            </ng-container>
         
             <!-- Symbol Column -->
             <ng-container matColumnDef="dataReserva">
               <th mat-header-cell *matHeaderCellDef>Data e horário</th>
               <td mat-cell *matCellDef="let reserva">
                 {{reserva.dataReserva | date:'dd/MM/yyyy HH:mm' }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="garcom">
+              <th mat-header-cell *matHeaderCellDef>Garçom</th>
+              <td mat-cell *matCellDef="let reserva">
+                <mat-icon *ngIf="reserva.idPerfil != 3" color="warn">clear</mat-icon>
+                <mat-icon *ngIf="reserva.idPerfil == 3" style="color: rgb(53, 219, 150);">done</mat-icon>
               </td>
             </ng-container>
         
@@ -75,23 +97,24 @@
             <mat-icon class="example-tab-icon">event_available</mat-icon>
             Aceita
           </ng-template>
-          <mat-form-field color="accent">
-            <mat-label>Selecione a data:</mat-label>
-            <input (dateChange)="filtroData1($event)" matInput [matDatepicker]="picker1">
-            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-            <mat-datepicker #picker1></mat-datepicker>
-          </mat-form-field>
-          <button mat-icon-button color="warn" aria-label="limpar" (click)="limparFiltro()">
-            <mat-icon>close</mat-icon>
-          </button>
-
+          <div style="padding-top: 40px;">
+            <mat-form-field color="accent">
+              <mat-label>Selecione a data:</mat-label>
+              <input (dateChange)="filtroData1($event)" matInput [matDatepicker]="picker1">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+            <button mat-icon-button color="warn" aria-label="limpar" (click)="limparFiltro()">
+              <mat-icon>close</mat-icon>
+            </button>
+          </div>
           
           <table mat-table [dataSource]="dataSource1" class="mat-elevation-z8">
 
             <ng-container matColumnDef="idReserva">
-              <th mat-header-cell *matHeaderCellDef>#ID</th>
+              <th mat-header-cell *matHeaderCellDef>#Comanda</th>
               <td mat-cell *matCellDef="let reserva">
-                {{reserva.idReserva}}
+                {{reserva.idComanda}}
               </td>
             </ng-container>
         
@@ -111,12 +134,34 @@
                 <mat-icon *ngIf="reserva.pagamentoApp" style="color: rgb(53, 219, 150);">done</mat-icon>
               </td>
             </ng-container>
+
+            <ng-container matColumnDef="nomeMesa">
+              <th mat-header-cell *matHeaderCellDef>Mesa</th>
+              <td mat-cell *matCellDef="let reserva">
+                {{reserva.nomeMesa}}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="nome">
+              <th mat-header-cell *matHeaderCellDef>Nome</th>
+              <td mat-cell *matCellDef="let reserva">
+                {{reserva.nome}}
+              </td>
+            </ng-container>
         
             <!-- Symbol Column -->
             <ng-container matColumnDef="dataReserva">
               <th mat-header-cell *matHeaderCellDef>Data e horário</th>
               <td mat-cell *matCellDef="let reserva">
                 {{reserva.dataReserva | date:'dd/MM/yyyy HH:mm' }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="garcom">
+              <th mat-header-cell *matHeaderCellDef>Garçom</th>
+              <td mat-cell *matCellDef="let reserva">
+                <mat-icon *ngIf="reserva.idPerfil != 3" color="warn">clear</mat-icon>
+                <mat-icon *ngIf="reserva.idPerfil == 3" style="color: rgb(53, 219, 150);">done</mat-icon>
               </td>
             </ng-container>
         
@@ -130,21 +175,25 @@
             <mat-icon class="example-tab-icon">event_busy</mat-icon>
             Cancelada
           </ng-template>
-          <mat-form-field color="accent">
-            <mat-label>Selecione a data:</mat-label>
-            <input (dateChange)="filtroData2($event)" matInput [matDatepicker]="picker2">
-            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-            <mat-datepicker #picker2></mat-datepicker>
-          </mat-form-field>
-          <button mat-icon-button color="warn" aria-label="limpar" (click)="limparFiltro()">
-            <mat-icon>close</mat-icon>
-          </button>
+
+          <div style="padding-top: 40px;">
+            <mat-form-field color="accent">
+              <mat-label>Selecione a data:</mat-label>
+              <input (dateChange)="filtroData2($event)" matInput [matDatepicker]="picker2">
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+            <button mat-icon-button color="warn" aria-label="limpar" (click)="limparFiltro()">
+              <mat-icon>close</mat-icon>
+            </button>
+          </div>
+
           <table mat-table [dataSource]="dataSource2" class="mat-elevation-z8">
 
             <ng-container matColumnDef="idReserva">
-              <th mat-header-cell *matHeaderCellDef>#ID</th>
+              <th mat-header-cell *matHeaderCellDef>#Comanda</th>
               <td mat-cell *matCellDef="let reserva">
-                {{reserva.idReserva}}
+                {{reserva.idComanda}}
               </td>
             </ng-container>
         
@@ -164,12 +213,34 @@
                 <mat-icon *ngIf="reserva.pagamentoApp" style="color: rgb(53, 219, 150);">done</mat-icon>
               </td>
             </ng-container>
+
+            <ng-container matColumnDef="nomeMesa">
+              <th mat-header-cell *matHeaderCellDef>Mesa</th>
+              <td mat-cell *matCellDef="let reserva">
+                {{reserva.nomeMesa}}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="nome">
+              <th mat-header-cell *matHeaderCellDef>Nome</th>
+              <td mat-cell *matCellDef="let reserva">
+                {{reserva.nome}}
+              </td>
+            </ng-container>
         
             <!-- Symbol Column -->
             <ng-container matColumnDef="dataReserva">
               <th mat-header-cell *matHeaderCellDef>Data e horário</th>
               <td mat-cell *matCellDef="let reserva">
                 {{reserva.dataReserva | date:'dd/MM/yyyy HH:mm' }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="garcom">
+              <th mat-header-cell *matHeaderCellDef>Garçom</th>
+              <td mat-cell *matCellDef="let reserva">
+                <mat-icon *ngIf="reserva.idPerfil != 3" color="warn">clear</mat-icon>
+                <mat-icon *ngIf="reserva.idPerfil == 3" style="color: rgb(53, 219, 150);">done</mat-icon>
               </td>
             </ng-container>
         
@@ -183,21 +254,26 @@
             <mat-icon class="example-tab-icon">history</mat-icon>
             Finalizada
           </ng-template>
-          <mat-form-field color="accent">
-            <mat-label>Selecione a data:</mat-label>
-            <input (dateChange)="filtroData3($event)" matInput [matDatepicker]="picker3">
-            <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
-            <mat-datepicker #picker3></mat-datepicker>
-          </mat-form-field>
-          <button mat-icon-button color="warn" aria-label="limpar" (click)="limparFiltro()">
-            <mat-icon>close</mat-icon>
-          </button>
+
+          <div style="padding-top: 40px;">
+            <mat-form-field color="accent">
+              <mat-label>Selecione a data:</mat-label>
+              <input (dateChange)="filtroData3($event)" matInput [matDatepicker]="picker3">
+              <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+              <mat-datepicker #picker3></mat-datepicker>
+            </mat-form-field>
+            <button mat-icon-button color="warn" aria-label="limpar" (click)="limparFiltro()">
+              <mat-icon>close</mat-icon>
+            </button>
+          </div>
+          
+
           <table mat-table [dataSource]="dataSource3" class="mat-elevation-z8">
 
             <ng-container matColumnDef="idReserva">
-              <th mat-header-cell *matHeaderCellDef>#ID</th>
+              <th mat-header-cell *matHeaderCellDef>#Comanda</th>
               <td mat-cell *matCellDef="let reserva">
-                {{reserva.idReserva}}
+                {{reserva.idComanda}}
               </td>
             </ng-container>
         
@@ -217,12 +293,34 @@
                 <mat-icon *ngIf="reserva.pagamentoApp" style="color: rgb(53, 219, 150);">done</mat-icon>
               </td>
             </ng-container>
+
+            <ng-container matColumnDef="nomeMesa">
+              <th mat-header-cell *matHeaderCellDef>Mesa</th>
+              <td mat-cell *matCellDef="let reserva">
+                {{reserva.nomeMesa}}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="nome">
+              <th mat-header-cell *matHeaderCellDef>Nome</th>
+              <td mat-cell *matCellDef="let reserva">
+                {{reserva.nome}}
+              </td>
+            </ng-container>
         
             <!-- Symbol Column -->
             <ng-container matColumnDef="dataReserva">
               <th mat-header-cell *matHeaderCellDef>Data e horário</th>
               <td mat-cell *matCellDef="let reserva">
                 {{reserva.dataReserva | date:'dd/MM/yyyy HH:mm' }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="garcom">
+              <th mat-header-cell *matHeaderCellDef>Garçom</th>
+              <td mat-cell *matCellDef="let reserva">
+                <mat-icon *ngIf="reserva.idPerfil != 3" color="warn">clear</mat-icon>
+                <mat-icon *ngIf="reserva.idPerfil == 3" style="color: rgb(53, 219, 150);">done</mat-icon>
               </td>
             </ng-container>
         

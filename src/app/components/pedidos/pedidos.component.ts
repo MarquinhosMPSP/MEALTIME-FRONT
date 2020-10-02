@@ -2,20 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import { PedidosService } from 'src/app/services/pedidos.service';
 import { PedidoDataSource } from './pedido-data-source';
-
-export interface Pedidos{
-  idPedido: number;
-  nomeItem: string;
-  preco: number;
-}
-
-export interface PeriodicElement {
-  idReserva: number;
-  nomeCliente: string;
-  nomeMesa: string;
-  dataReserva: Date
-  pedidos: Pedidos[]
-}
+import { ReservasService } from 'src/app/services/reservas.service';
 
 
 @Component({
@@ -32,13 +19,15 @@ export interface PeriodicElement {
 })
 export class PedidosComponent implements OnInit {
   dataSource: PedidoDataSource;
-  columnsToDisplay = ['idComanda', "valorTotal", "mesa", "data"];
-  expandedElement: PeriodicElement | null;
+  columnsToDisplay = ['idComanda', "valorTotal", "mesa", "nome", "data", 'acoes' ];
+  expandedElement: any | null;
 
-  constructor(private pedidosService: PedidosService) { }
+  constructor(
+    private pedidosService: PedidosService,
+    private reservaService: ReservasService) { }
 
   ngOnInit() {
-    this.dataSource = new PedidoDataSource(this.pedidosService);
+    this.dataSource = new PedidoDataSource(this.pedidosService, this.reservaService);
     this.dataSource.carregarPedido();
   }
 
@@ -53,4 +42,8 @@ export class PedidosComponent implements OnInit {
   finalizar(item, comanda){
     this.dataSource.finalizar(item, comanda);
   } 
+
+  fecharReserva(item){
+    this.dataSource.fecharReserva(item.reserva.idReserva, 'finalizada')
+  }
 }
