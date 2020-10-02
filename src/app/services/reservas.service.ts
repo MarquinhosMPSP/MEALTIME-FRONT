@@ -37,4 +37,8 @@ export class ReservasService {
     return this.http.put<any>(`${this.api_url}/reservas/${item.idReserva}`, {status});
   }
 
+  fecharReserva(item: number, status: string):Observable<any>{
+    return this.http.put<any>(`${this.api_url}/reservas/${item}`, {status});
+  }
+
 }

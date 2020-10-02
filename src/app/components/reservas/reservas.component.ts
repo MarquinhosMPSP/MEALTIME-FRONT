@@ -12,8 +12,8 @@ import * as moment from 'moment';
 })
 export class ReservasComponent implements OnInit {
 
-  displayedColumns2: string[] = ['idReserva', 'status', 'pagamentoApp', 'dataReserva'];
-  displayedColumns1: string[] = ['idReserva', 'status', 'pagamentoApp', 'dataReserva', 'acoes'];
+  displayedColumns2: string[] = ['idReserva', 'status', 'pagamentoApp', 'nome', 'nomeMesa', 'dataReserva', 'garcom'];
+  displayedColumns1: string[] = ['idReserva', 'status', 'pagamentoApp', 'nome', 'nomeMesa', 'dataReserva', 'garcom', 'acoes'];
 
   dataSource1: ReservasDataSource;
   dataSource2: ReservasDataSource;
@@ -61,12 +61,14 @@ export class ReservasComponent implements OnInit {
 
   aceitarReserva(item: Reserva){
     this.dataSource4.atualizarReserva(item, 'aceita');
-    this.limparFiltro();
+    this.dataSource1.carregarReservaFiltroStatus('aceita');
+    this.dataSource4.carregarReservaFiltroStatus('criada');
   }
 
   recusarReserva(item: Reserva){
     this.dataSource4.atualizarReserva(item, 'cancelada');
-    this.limparFiltro();
+    this.dataSource2.carregarReservaFiltroStatus('cancelada');
+    this.dataSource4.carregarReservaFiltroStatus('criada');
   }
 
   limparFiltro(){
