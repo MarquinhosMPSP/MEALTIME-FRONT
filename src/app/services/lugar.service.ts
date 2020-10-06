@@ -15,10 +15,11 @@ export class LugarService {
     ) { }
 
   public api_url:string = 'https://staging-mealtime-api.herokuapp.com';
+  public idRestaurante = this.user.getUser();
   
 
   getIndex():Observable<Lugares[]>{
-    return this.http.get<Lugares[]>(`${this.api_url}/mesas`)
+    return this.http.get<Lugares[]>(`${this.api_url}/mesas/restaurante/${this.idRestaurante.idRestaurante}`)
   }
 
   delete(item:Lugares):Observable<any>{
