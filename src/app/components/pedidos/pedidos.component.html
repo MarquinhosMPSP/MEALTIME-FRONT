@@ -59,6 +59,7 @@
                     <mat-icon color="primary" mat-list-icon>fastfood</mat-icon>
                     <div mat-line>Pedido: {{item.idPedido}}</div>
                     <div mat-line>{{item.nome}} - R${{item.precoCalculado}}</div>
+                    <div mat-line style="color: #e63b3b; font-weight: bold;" *ngIf="item.observacoes">Observação:{{item.observacoes}}</div>
                     
                     <button *ngIf="item.status === 'criado'" mat-button color="primary" aria-label="atualizar" (click)="emProgresso(item, element)">
                       <mat-icon>forward</mat-icon>

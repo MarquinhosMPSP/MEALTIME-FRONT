@@ -15,7 +15,7 @@ export class CardapioService {
   public user = this.userService.getUser();
 
   getIndex():Observable<Cardapio[]>{
-    return this.http.get<Cardapio[]>(`${this.api_url}/itens`)
+    return this.http.get<Cardapio[]>(`${this.api_url}/itens/cardapio`)
   }
 
   delete(item: Cardapio):Observable<any>{
