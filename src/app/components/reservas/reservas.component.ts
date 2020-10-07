@@ -19,6 +19,7 @@ export class ReservasComponent implements OnInit {
   dataSource2: ReservasDataSource;
   dataSource3: ReservasDataSource;
   dataSource4: ReservasDataSource;
+  dataSource5: ReservasDataSource;
 
 
   constructor(private reservasService: ReservasService) { }
@@ -32,6 +33,8 @@ export class ReservasComponent implements OnInit {
     this.dataSource3.carregarReservaFiltroStatus('finalizada');
     this.dataSource4 = new ReservasDataSource(this.reservasService);
     this.dataSource4.carregarReservaFiltroStatus('criada');
+    this.dataSource5 = new ReservasDataSource(this.reservasService);
+    this.dataSource5.carregarReservaFiltroStatus('ativa');
   }
 
   data = null;
@@ -57,6 +60,12 @@ export class ReservasComponent implements OnInit {
     this.data = new Date(event.value);
     let dataFormat = this.data.toISOString();
     this.dataSource4.carregarReservasFiltro(dataFormat, 'criada');
+  }
+
+  filtroData5(event){
+    this.data = new Date(event.value);
+    let dataFormat = this.data.toISOString();
+    this.dataSource4.carregarReservasFiltro(dataFormat, 'ativa');
   }
 
   aceitarReserva(item: Reserva){
