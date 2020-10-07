@@ -251,6 +251,74 @@
 
         <mat-tab>
           <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">today</mat-icon>
+            Ativa agora
+          </ng-template>
+          
+
+          <table style="padding-top: 20px;" mat-table [dataSource]="dataSource5" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="idReserva">
+              <th mat-header-cell *matHeaderCellDef>#Comanda</th>
+              <td mat-cell *matCellDef="let reserva">
+                {{reserva.idComanda}}
+              </td>
+            </ng-container>
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef>Status</th>
+              <td mat-cell *matCellDef="let reserva">
+                {{reserva.status}}
+              </td>
+            </ng-container>
+        
+            <!-- Weight Column -->
+            <ng-container matColumnDef="pagamentoApp">
+              <th mat-header-cell *matHeaderCellDef>Pagamento pelo app?</th>
+              <td mat-cell *matCellDef="let reserva">
+                <mat-icon *ngIf="!reserva.pagamentoApp" color="warn">clear</mat-icon>
+                <mat-icon *ngIf="reserva.pagamentoApp" style="color: rgb(53, 219, 150);">done</mat-icon>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="nomeMesa">
+              <th mat-header-cell *matHeaderCellDef>Mesa</th>
+              <td mat-cell *matCellDef="let reserva">
+                {{reserva.nomeMesa}}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="nome">
+              <th mat-header-cell *matHeaderCellDef>Nome</th>
+              <td mat-cell *matCellDef="let reserva">
+                {{reserva.nome}}
+              </td>
+            </ng-container>
+        
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="dataReserva">
+              <th mat-header-cell *matHeaderCellDef>Data e horário</th>
+              <td mat-cell *matCellDef="let reserva">
+                {{reserva.dataReserva | date:'dd/MM/yyyy HH:mm' }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="garcom">
+              <th mat-header-cell *matHeaderCellDef>Garçom</th>
+              <td mat-cell *matCellDef="let reserva">
+                <mat-icon *ngIf="reserva.idPerfil != 3" color="warn">clear</mat-icon>
+                <mat-icon *ngIf="reserva.idPerfil == 3" style="color: rgb(53, 219, 150);">done</mat-icon>
+              </td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+          </table>
+        </mat-tab>
+
+        <mat-tab>
+          <ng-template mat-tab-label>
             <mat-icon class="example-tab-icon">history</mat-icon>
             Finalizada
           </ng-template>

@@ -11,7 +11,7 @@
           
           <div fxLayout="row" fxLayoutAlign="start start">
             <mat-form-field fxFlex=100>
-              <input matInput required placeholder="Nome do Restaurante" formControlName="nomeRestaurante">
+              <input matInput required placeholder="Nome/Fantasia" formControlName="nomeRestaurante">
             </mat-form-field>
           </div>
           
@@ -23,7 +23,7 @@
             <mat-form-field fxFlex=47.5>
               <mat-label>Selecione uma categoria</mat-label>
               <mat-select formControlName="categoria">
-                <mat-option>Nones</mat-option>
+                <mat-option>None</mat-option>
                 <mat-option value="Brasileira">Brasileira</mat-option>
                 <mat-option value="Nordestina">Nordestina</mat-option>
                 <mat-option value="Mineira">Mineira</mat-option>
@@ -76,7 +76,7 @@
             </mat-form-field>
 
             <mat-form-field fxFlex=30>
-              <input matInput required placeholder="Login" formControlName="login">
+              <input matInput required placeholder="Email" formControlName="login">
             </mat-form-field>
 
             <mat-form-field fxFlex=30>

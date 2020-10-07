@@ -18,7 +18,7 @@
               <span matPrefix></span>
             </mat-form-field>
             <mat-form-field fxFlex=25>
-              <input matInput required placeholder="Login" type="text" formControlName="login">
+              <input matInput required placeholder="Email" type="email" formControlName="login">
             </mat-form-field>
             <mat-form-field fxFlex=25>
               <input matInput required placeholder="Senha" type="text" formControlName="senha">
@@ -34,8 +34,7 @@
           <mat-list-item *ngFor="let item of funcionarios$ | async">
             <mat-icon color="primary" mat-list-icon>account_circle</mat-icon>
             <div mat-line>Nome: {{item.nome}}</div>  
-            <div mat-line>Login: {{item.login}}</div>  
-            <div mat-line>Senha: {{item.senha}}</div>
+            <div mat-line>Email: {{item.login}}</div>  
             <mat-divider></mat-divider>    
           </mat-list-item>
         </mat-list>
