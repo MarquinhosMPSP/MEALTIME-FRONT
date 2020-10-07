@@ -72,6 +72,7 @@ export class ReservasComponent implements OnInit {
     this.dataSource4.atualizarReserva(item, 'aceita');
     this.dataSource1.carregarReservaFiltroStatus('aceita');
     this.dataSource4.carregarReservaFiltroStatus('criada');
+    this.dataSource5.carregarReservaFiltroStatus('ativa');
   }
 
   recusarReserva(item: Reserva){
