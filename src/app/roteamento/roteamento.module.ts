@@ -15,6 +15,7 @@ import { CadastroComponent } from '../pages/cadastro/cadastro.component';
 import { PromocaoComponent } from '../components/promocao/promocao.component';
 import { FaqComponent } from '../components/faq/faq.component';
 import { FuncionariosComponent } from '../components/funcionarios/funcionarios.component';
+import { ClientesComponent } from '../components/clientes/clientes.component';
 
 const appRoutes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login'},
@@ -29,8 +30,8 @@ const appRoutes: Routes = [
       { path: 'pedidos', component: PedidosComponent },
       { path: 'promocao', component: PromocaoComponent },
       { path: 'faq', component: FaqComponent },
-      { path: 'funcionarios', component: FuncionariosComponent}
-
+      { path: 'funcionarios', component: FuncionariosComponent},
+      { path: 'clientes', component: ClientesComponent }
     ]
   },
   { path: '**', component: PageNotFoundComponent },

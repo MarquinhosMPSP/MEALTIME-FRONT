@@ -13,7 +13,7 @@ export class PromocaoService {
   public api_url:string = 'https://staging-mealtime-api.herokuapp.com';
 
   getIndex():Observable<Cardapio[]>{
-    return this.http.get<Cardapio[]>(`${this.api_url}/itens`)
+    return this.http.get<Cardapio[]>(`${this.api_url}/itens/cardapio`)
   }
 
   editar(id:number, porcentagem: any):Observable<Cardapio>{

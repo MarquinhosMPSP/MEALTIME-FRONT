@@ -26,6 +26,7 @@ import { PromocaoComponent } from './components/promocao/promocao.component';
 import { AtualizadorComponent } from './components/promocao/atualizador/atualizador.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { FuncionariosComponent } from './components/funcionarios/funcionarios.component';
+import { ClientesComponent } from './components/clientes/clientes.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { FuncionariosComponent } from './components/funcionarios/funcionarios.co
     PromocaoComponent,
     AtualizadorComponent,
     FaqComponent,
-    FuncionariosComponent
+    FuncionariosComponent,
+    ClientesComponent
   ],
   imports: [
     BrowserModule,

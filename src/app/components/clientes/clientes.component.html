@@ -1,0 +1,40 @@
+<div fxLayout="column" fxLayoutAlign="center-center stretch">
+  <div fxFlex="10">
+    <mat-card>
+      <div fxLayout="row">
+        <mat-card-title-group fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100">
+          <mat-card-title>Melhores Clientes</mat-card-title>
+          <mat-card-subtitle>
+            <span>Que tal uma sobremesa ou um desconto para os seus clientes mais fiéis?</span>
+          </mat-card-subtitle>
+        </mat-card-title-group>
+      </div>
+      <mat-card-content class="overflow-x">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+          <ng-container matColumnDef="idUsuario">
+            <th mat-header-cell *matHeaderCellDef> #ID Cliente </th>
+            <td mat-cell *matCellDef="let usuario"> {{usuario.idCliente}} </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="nome">
+            <th mat-header-cell *matHeaderCellDef> Nome </th>
+            <td mat-cell *matCellDef="let usuario"> {{usuario.nome}} </td>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="count">
+            <th mat-header-cell *matHeaderCellDef> Qtd de visitas </th>
+            <td mat-cell *matCellDef="let usuario"> {{usuario.count}} </td>
+          </ng-container>
+
+         
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
