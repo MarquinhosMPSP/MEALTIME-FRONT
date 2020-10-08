@@ -22,7 +22,6 @@ export class PromocaoService {
       idItem: id,
       promocao: promocao
     }
-    console.log(tratado);
     return this.http.patch<Cardapio>(`${this.api_url}/itens/promocao`, tratado)
   }
 }

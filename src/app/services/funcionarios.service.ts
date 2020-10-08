@@ -18,7 +18,6 @@ export class FuncionariosService {
   cadastrar(item):Promise<any>{
     item.idRestaurante = this.user.idRestaurante;
     item.idPerfil = 3;
-    console.log(item)
     return this.http.post<any>(`${this.api_url}/usuarios`, item).toPromise();
   }
 
