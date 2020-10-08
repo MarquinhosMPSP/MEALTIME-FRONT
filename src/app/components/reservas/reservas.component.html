@@ -1,6 +1,17 @@
 <div fxLayout="column" fxLayoutAlign="center-center stretch">
   <div fxFlex="100">
     <mat-card>
+      <div fxLayout="row">
+        <mat-card-title-group fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100">
+          <mat-card-title>Reservas</mat-card-title>
+          <mat-card-subtitle>
+            <span>Reservas solicitadas no seu restaurante</span>
+          </mat-card-subtitle>
+          <button mat-icon-button color="primary" aria-label="atualizar" (click)="atualizar()">
+            <mat-icon>refresh</mat-icon>
+          </button>
+        </mat-card-title-group>
+      </div>
       <mat-tab-group dynamicHeight>
         <mat-tab>
           <ng-template mat-tab-label>
