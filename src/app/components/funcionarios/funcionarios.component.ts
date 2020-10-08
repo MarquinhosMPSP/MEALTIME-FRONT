@@ -28,8 +28,12 @@ export class FuncionariosComponent implements OnInit {
   }
 
   save(){
-    this.funcionariosService.cadastrar(this.funcionarioForm.value);
-    this.funcionarios$ = this.funcionariosService.getIndex();
+    this.funcionariosService.cadastrar(this.funcionarioForm.value).then(
+      () => {
+        this.funcionarios$ = this.funcionariosService.getIndex();
+      }
+    )
+    
   }
 
 

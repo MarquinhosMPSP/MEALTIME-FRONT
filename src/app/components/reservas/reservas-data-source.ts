@@ -48,11 +48,10 @@ export class ReservasDataSource implements DataSource<Reserva>{
         this.reservasService.atualizarReserva(item, status)
         .pipe(
             catchError(() => of([]))
-        )
-        .subscribe(
-            () => this.carregarReservaFiltroStatus('criada')
-        )
+        ).subscribe(reserva => this.reservaSubject$.next(reserva))
     }
+
+    
 
     
 
